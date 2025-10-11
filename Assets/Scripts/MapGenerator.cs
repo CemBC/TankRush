@@ -9,7 +9,7 @@ public class MapGenerator : MonoBehaviour
     public float tileSize = 1f;
     public float decorYOffset = 0.2f; 
 
-    [Header("Token Sets")]
+    [Header("Tokens")]
     public TokenData[] terrainTokens;
     public TokenData[] decorTokens;
 
@@ -18,53 +18,55 @@ public class MapGenerator : MonoBehaviour
 
     public void Build()
     {
-        if (!level || !mapRoot)
-        {
+        if (!level || !mapRoot){
             Debug.LogError("Missing Data");
             return;
         }
-        if (level.terrainRows == null || level.terrainRows.Length == 0)
-        {
+        if (level.terrainRows == null || level.terrainRows.Length == 0){
             Debug.LogError("Empty Data");
             return;
         }
 
-        
-        for (int i = mapRoot.childCount - 1; i >= 0; i--)
+        for (int i = mapRoot.childCount - 1; i >= 0; i--){
             DestroyImmediate(mapRoot.GetChild(i).gameObject);
-
+        }
         
         terrainMap = BuildMap(terrainTokens);
         decorMap   = BuildMap(decorTokens);
 
-        int h = level.terrainRows.Length;
-        int w = CountCells(level.terrainRows[0]);
-        if (level.gridSize == Vector2Int.zero) level.gridSize = new Vector2Int(w, h);
-
-        for (int y = 0; y < h; y++)
+        int height = level.terrainRows.Length;
+        int width = CountCells(level.terrainRows[0]);
+        if (level.gridSize == Vector2Int.zero)
         {
-            var tCells = SplitRow(level.terrainRows[y]);
-            string[] dCells = null;
-            if (level.decorRows != null && level.decorRows.Length > y && !string.IsNullOrWhiteSpace(level.decorRows[y]))
-                dCells = SplitRow(level.decorRows[y]);
-
-            for (int x = 0; x < w; x++)
+            level.gridSize = new Vector2Int(width, height);
+        }
+        
+        for (int y = 0; y < height; y++)
+        {
+            var terrainCells = SplitRow(level.terrainRows[y]);
+            string[] decorCells = null;
+            if (level.decorRows != null &&
+            level.decorRows.Length > y && !string.IsNullOrWhiteSpace(level.decorRows[y]))
             {
-                Vector3 basePos = new Vector3(x * tileSize, 0f, (h - 1 - y) * tileSize);
+                decorCells = SplitRow(level.decorRows[y]);
+            }
+            for (int x = 0; x < width; x++)
+            {
+                Vector3 basePosition = new Vector3(x * tileSize, 0f, (height - 1 - y) * tileSize);
 
-                if (x < tCells.Length && terrainMap.TryGetValue(tCells[x], out var tTok) && tTok.prefab)
+                if (x < terrainCells.Length && terrainMap.TryGetValue(terrainCells[x], out var terrainToken) && terrainToken.prefab)
                 {
-                    var tGo = Instantiate(tTok.prefab, basePos, Quaternion.identity, mapRoot);
-                    tTok.ApplyTo(tGo);
+                    var terrainGameObject = Instantiate(terrainToken.prefab, basePosition, Quaternion.identity, mapRoot);
+                    terrainToken.ApplyTo(terrainGameObject);
                 }
 
-                if (dCells != null && x < dCells.Length)
+                if (decorCells != null && x < decorCells.Length)
                 {
-                    string dTokStr = dCells[x];
-                    if (dTokStr != "." && decorMap.TryGetValue(dTokStr, out var dTok) && dTok.prefab)
+                    string decorTokenString = decorCells[x];
+                    if (decorTokenString != "." && decorMap.TryGetValue(decorTokenString, out var decorToken) && decorToken.prefab)
                     {
-                        var dGo = Instantiate(dTok.prefab, basePos + Vector3.up * decorYOffset, Quaternion.identity, mapRoot);
-                        dTok.ApplyTo(dGo); 
+                        var decorGameObject = Instantiate(decorToken.prefab, basePosition + Vector3.up * decorYOffset, Quaternion.identity, mapRoot);
+                        decorToken.ApplyTo(decorGameObject); 
                     }
                 }
             }

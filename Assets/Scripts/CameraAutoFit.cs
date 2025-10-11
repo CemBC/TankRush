@@ -3,7 +3,6 @@ using UnityEngine;
 [ExecuteAlways]
 public class CameraAutoFit : MonoBehaviour
 {
-    [Header("References")]
     public Camera cam;
     public LevelData level;  
     public float tileSize = 1f;
@@ -11,26 +10,28 @@ public class CameraAutoFit : MonoBehaviour
 
     public void Fit()
     {
-        if (cam == null || level == null || level.terrainRows == null || level.terrainRows.Length == 0)
+        if (cam == null || level == null 
+        || level.terrainRows == null 
+        || level.terrainRows.Length == 0)
         {
             Debug.LogError("Camera or Level missing");
             return;
         }
 
-        int h = level.terrainRows.Length;
-        int w = CountCells(level.terrainRows[0]);
+        int height = level.terrainRows.Length;
+        int width = CountCells(level.terrainRows[0]);
 
-        float worldWidth = w * tileSize;
-        float worldHeight = h * tileSize;
+        float worldWidth = width * tileSize;
+        float worldHeight = height * tileSize;
 
-        Vector3 center = new Vector3((w - 1) * tileSize * 0.5f, 0f,(h - 1) * tileSize * 0.5f );
+        Vector3 center = new Vector3((width - 1) * tileSize * 0.5f, 0f,
+        (height - 1) * tileSize * 0.5f);
         cam.orthographic = true;
         cam.transform.position = new Vector3(center.x, 10f, center.z);
         cam.transform.rotation = Quaternion.Euler(90f, 0f, 0f);
 
         float sizeByHeight = (worldHeight * 0.5f) + padding;
-        float sizeByWidth = ((worldWidth * 0.5f) / cam.aspect) + padding;
-
+        float sizeByWidth = (worldWidth * 0.5f / cam.aspect) + padding;
         cam.orthographicSize = Mathf.Max(sizeByHeight, sizeByWidth);
     }
 

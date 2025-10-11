@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: TokenS
   m_EditorClassIdentifier: Assembly-CSharp::TokenData
   token: S
-  prefab: {fileID: 919132149155446097, guid: 9a03ea3c7c95e8940ac620aae43ef037, type: 3}
+  prefab: {fileID: 6006181622257908306, guid: 98b55566090341c48a03e75ffd4c47c2, type: 3}
   rotation: {x: 0, y: 0, z: 0}
-  offset: {x: 0, y: 0, z: 0}
   scale: {x: 1, y: 1, z: 1}

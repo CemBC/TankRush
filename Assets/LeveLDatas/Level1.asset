@@ -20,4 +20,5 @@ MonoBehaviour:
   - VP VP VP VP R G G G G
   - G G G G G G G G G
   - G G G G G G G G G
-  decorRows: []
+  decorRows:
+  - 'T T T S  . . . . '

@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: TokenR
   m_EditorClassIdentifier: Assembly-CSharp::TokenData
   token: R
-  prefab: {fileID: 919132149155446097, guid: 4cc82f6a9fb4558428f5e9bed18e245f, type: 3}
+  prefab: {fileID: 925657384992588299, guid: 9e5d29c646878ea43a88d91b4a728021, type: 3}
   rotation: {x: 0, y: 0, z: 0}
-  offset: {x: 0, y: 0, z: 0}
   scale: {x: 1, y: 1, z: 1}

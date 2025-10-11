@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: TokenVP
   m_EditorClassIdentifier: Assembly-CSharp::TokenData
   token: VP
-  prefab: {fileID: 919132149155446097, guid: 26059ecdcd3a89846acd5bb99f703cb6, type: 3}
+  prefab: {fileID: 6807372337027126612, guid: 02a1eeca20b784b41a5a31a3b692cfc6, type: 3}
   rotation: {x: 0, y: 90, z: 0}
-  offset: {x: 0, y: 0, z: 0}
   scale: {x: 1, y: 1, z: 1}
