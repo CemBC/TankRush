@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: b926607b14307d54d8374356ebcf48cf
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - level: {fileID: 11400000, guid: 74eee335f11ff3945909e604a440f08b, type: 2}
+  - mapRoot: {instanceID: 0}
+  - grassPrefab: {fileID: 919132149155446097, guid: a71eff64ee790e94587c62f8200efd7f, type: 3}
+  - pathPrefab: {fileID: 919132149155446097, guid: 26059ecdcd3a89846acd5bb99f703cb6, type: 3}
+  - rockPrefab: {fileID: 919132149155446097, guid: 4cc82f6a9fb4558428f5e9bed18e245f, type: 3}
+  - defaultPrefab: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
