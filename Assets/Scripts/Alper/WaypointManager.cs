@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WaypointManager : MonoBehaviour
 {
-    public Transform[] wayPoints;
+    public Transform[] wayPoints; //Buraya level datadan transform koyacağız
     public int targetPoint;
     public float moveSpeed = 2f;
     private Animator animator;
@@ -17,6 +18,14 @@ public class WaypointManager : MonoBehaviour
     public GameObject deathEffect;
     void Start()
     {
+        if (wayPoints == null || wayPoints.Length == 0)
+        {
+            if (PathProvider.Instance != null)
+                wayPoints = PathProvider.Instance.GetWaypoints();
+            else
+                Debug.Log("No pathprovider on scene");
+        }
+        
         targetPoint = 0;
         animator = GetComponent<Animator>();
         renderers = GetComponentsInChildren<Renderer>();

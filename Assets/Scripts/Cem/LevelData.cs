@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "LevelData", menuName = "TD/Level Data")]
@@ -12,6 +13,8 @@ public class LevelData : ScriptableObject
     public string[] terrainRows;
 
     [Header("Decor Layer")]
-    
+
     public string[] decorRows;
+
+     public List<Vector3> waypointPositions = new List<Vector3>();
 }
