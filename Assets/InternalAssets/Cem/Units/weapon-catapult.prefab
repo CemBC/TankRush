@@ -101,6 +101,8 @@ GameObject:
   - component: {fileID: 7537908756115565364}
   - component: {fileID: 8384997259676292272}
   - component: {fileID: -8084447275408527261}
+  - component: {fileID: -6560839283057762985}
+  - component: {fileID: -491412631191919026}
   m_Layer: 3
   m_Name: weapon-catapult
   m_TagString: Untagged
@@ -201,3 +203,45 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6, y: 0.4397777, z: 0.6}
   m_Center: {x: 0, y: 0.21988885, z: 0}
+--- !u!135 &-6560839283057762985
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3977423294612255744}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0.21988885, z: 0}
+--- !u!114 &-491412631191919026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3977423294612255744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: defcc81b2bebfb14582b4941d28f753f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerUnit
+  data: {fileID: 11400000, guid: a3c0e351bc0030d4b8ecd21b722fc1c2, type: 2}
+  projectilePrefab: {fileID: 2985287228651492725, guid: 070cec14db49b0544b164f9df1f94887, type: 3}
+  projectileSpeed: 30
+  projectileLifeTime: 2
+  projectileRadius: 0.12
+  projectilePierce: 1
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 512

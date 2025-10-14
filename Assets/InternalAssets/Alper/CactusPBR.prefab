@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7959784758293868152}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_rightUpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7290043681042500321}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_leftHandTip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3492185774027881505}
   - component: {fileID: 5099650671580299338}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cactus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4838112158677563428}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_spine03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 306254757926084073}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_rightHandTip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 502149343251533240}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_rightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6101898647513121397}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_spine02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6338923470354438822}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_rightLowerArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4979939338186302638}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_leftUpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8826416327730894839}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +406,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5949812766593287704}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_leftLowerArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +438,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2796393947453869053}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_leftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +470,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6051640354436408974}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,7 +505,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3884069326421930406}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -537,7 +537,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 919588781027264281}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,7 +568,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7659155527360511758}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_headDeco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -599,7 +599,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3491827043158558569}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_rightEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -632,7 +632,8 @@ GameObject:
   - component: {fileID: 1955133659293646011}
   - component: {fileID: 66261712971309048}
   - component: {fileID: 5533146103764909206}
-  m_Layer: 0
+  - component: {fileID: 2979206280061054658}
+  m_Layer: 9
   m_Name: CactusPBR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -690,18 +691,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a4253b8fd925e46a3a1db9bfbbac66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaypointManager
-  wayPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  wayPoints: []
   targetPoint: 0
   moveSpeed: 2
   deathAnimDuration: 2
   deadBodyStayTime: 3
   fadeDuration: 2
   deathEffect: {fileID: 0}
+--- !u!136 &2979206280061054658
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8720504870509438686}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8870652167632565118
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,7 +730,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7923406425548077078}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_leftEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -742,7 +761,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4369708007083396619}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cactus_spine01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

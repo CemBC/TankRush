@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4283378828352677579}
   - component: {fileID: 1463191345177365374}
   - component: {fileID: -695091713560610014}
+  - component: {fileID: 6940786770590953793}
+  - component: {fileID: -2625572067842981286}
   m_Layer: 3
   m_Name: weapon-turret
   m_TagString: Untagged
@@ -112,6 +114,48 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.51097316, y: 0.22999999, z: 0.51097316}
   m_Center: {x: 0, y: 0.114999995, z: 0}
+--- !u!135 &6940786770590953793
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36538896174184612}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.25548658
+  m_Center: {x: 0, y: 0.114999995, z: 0}
+--- !u!114 &-2625572067842981286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36538896174184612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: defcc81b2bebfb14582b4941d28f753f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerUnit
+  data: {fileID: 11400000, guid: 41ac640c1cb68a545a76060be019d13a, type: 2}
+  projectilePrefab: {fileID: 5784426523169572819, guid: 910328a4b8871104d8da1910774bd079, type: 3}
+  projectileSpeed: 30
+  projectileLifeTime: 2
+  projectileRadius: 0.12
+  projectilePierce: 1
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &1733265208427230194
 GameObject:
   m_ObjectHideFlags: 0

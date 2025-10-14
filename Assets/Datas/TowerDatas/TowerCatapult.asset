@@ -19,3 +19,4 @@ MonoBehaviour:
   yOffset: 0
   footprintRadius: 0.4
   range: 2.5
+  attackSpeed: 0.5
