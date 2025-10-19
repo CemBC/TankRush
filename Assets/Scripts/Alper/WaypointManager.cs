@@ -32,39 +32,43 @@ public class WaypointManager : MonoBehaviour
     }
 
     void Update()
+{
+    if (isDead) return;
+
+    if (wayPoints == null || wayPoints.Length == 0) return;
+    if (targetPoint >= wayPoints.Length)
     {
-        if (isDead) return;
-        
-        if (wayPoints == null || wayPoints.Length == 0) return;
-        if (wayPoints[targetPoint] == null) return;
+        Die();
+        return;
+    }
 
-        float distance = Vector3.Distance(transform.position, wayPoints[targetPoint].position);
+    float distance = Vector3.Distance(transform.position, wayPoints[targetPoint].position);
 
-        if (distance < 0.1f)
-        {
-            increaseTargetInt();
-        }
+    if (distance < 0.1f)
+    {
+        increaseTargetInt();
+    }
 
+    if (targetPoint < wayPoints.Length)
+    {
         Vector3 direction = (wayPoints[targetPoint].position - transform.position).normalized;
         if (direction != Vector3.zero)
-        {
             transform.forward = Vector3.Lerp(transform.forward, direction, Time.deltaTime * 5f);
-        }
 
-        // hareket
         transform.position = Vector3.MoveTowards(
             transform.position,
             wayPoints[targetPoint].position,
             Time.deltaTime * moveSpeed
         );
 
-        // animator parametresi
         if (animator != null)
         {
             float currentSpeed = (moveSpeed > 0.05f) ? moveSpeed : 0f;
             animator.SetFloat("Speed", currentSpeed);
         }
     }
+}
+
 
     public void increaseTargetInt()
     {
