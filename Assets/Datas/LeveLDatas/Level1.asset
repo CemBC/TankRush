@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34039f64388b47439fa6df5d3ceebd7, type: 3}
   m_Name: Level1
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
+  levelHealth: 100
+  levelStartupMoney: 700
+  maxUnits: 5
   levelName: Level1
   gridSize: {x: 9, y: 5}
   terrainRows:

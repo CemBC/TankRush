@@ -15,7 +15,8 @@ MonoBehaviour:
   towerName: Turret
   prefab: {fileID: 36538896174184612, guid: 8d814b7d630693f4fb0b23c5deac24b6, type: 3}
   ghostPrefab: {fileID: 1846801576090195129, guid: 973ca329211e01446a006595bc2f4a27, type: 3}
-  cost: 0
+  cost: 300
   yOffset: 0
   footprintRadius: 0.4
   range: 2
+  attackSpeed: 3

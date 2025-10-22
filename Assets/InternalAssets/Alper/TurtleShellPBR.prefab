@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6313640386139429623}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8166095396060519393}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HornL01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5933149627434702746}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HornL03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,8 @@ GameObject:
   - component: {fileID: 4330935293763091598}
   - component: {fileID: 8626008508632378784}
   - component: {fileID: 5935770108088354488}
-  m_Layer: 0
+  - component: {fileID: -997782218864461940}
+  m_Layer: 9
   m_Name: TurtleShellPBR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,18 +166,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a4253b8fd925e46a3a1db9bfbbac66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaypointManager
-  wayPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  wayPoints: []
   targetPoint: 0
   moveSpeed: 2
   deathAnimDuration: 2
   deadBodyStayTime: 3
   fadeDuration: 2
   deathEffect: {fileID: 0}
+--- !u!136 &-997782218864461940
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386743485669999022}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1517747216079891874
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5096926654725081500}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HornMid03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6030676613998103892}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +271,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7894733212747176991}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HornL04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +303,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2023894562766953516}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HornRTip01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +334,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4159083992487479264}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HornL02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +366,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7301260790806374771}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HornMidTip02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -378,7 +397,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2995635843008308234}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spine01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +430,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2716957782750324918}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HornMidTip03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,7 +461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3049238108599099535}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HornRTip04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6832003579874252084}
   - component: {fileID: 8385425637687534285}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TurtleShell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -594,7 +613,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1109597774184921007}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UpperCover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -625,7 +644,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1260526693606882312}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -667,7 +686,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7858797816084209547}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HornR02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -699,7 +718,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5619042983117591804}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Eyeball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -730,7 +749,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6598454460041798358}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HornLTip04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -761,7 +780,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8429439310938733735}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HornR03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -793,7 +812,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5974512640041513965}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HornLTip02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -824,7 +843,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224249325039368489}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HornMid02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -856,7 +875,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2877325883531250102}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HornR01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -888,7 +907,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3030618381390473664}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HornLTip03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -919,7 +938,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3263513658998644984}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HornMidTip01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -950,7 +969,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2292213638968277254}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spine02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -982,7 +1001,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3253802962117871562}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HornRTip03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1013,7 +1032,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7896660166483947541}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HornLTip01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1044,7 +1063,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4910423070496272396}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HornRTip02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1075,7 +1094,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1843212922012863765}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HornMid01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1107,7 +1126,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8090220615189047800}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BottomCover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1138,7 +1157,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7893189301844721589}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HornR04
   m_TagString: Untagged
   m_Icon: {fileID: 0}

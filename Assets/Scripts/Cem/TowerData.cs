@@ -11,7 +11,9 @@ public class TowerData : ScriptableObject
 
     [Header("Placement")]
     public float yOffset = 0f; //daha sonra çakışma olursa yükselti kullanacaksa kullanılabilir
-    public float footprintRadius = 0.4f; 
+    public float footprintRadius = 0.4f;
 
     public float range;
+
+    public float attackSpeed;
 }

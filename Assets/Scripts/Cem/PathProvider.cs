@@ -39,7 +39,6 @@ public class PathProvider : MonoBehaviour
         if (levelData == null || levelData.waypointPositions == null || levelData.waypointPositions.Count == 0)
         {
             Waypoints = Array.Empty<Transform>();
-            Debug.LogWarning("[PathProvider] LevelData boş veya waypoint yok.");
             return;
         }
 
