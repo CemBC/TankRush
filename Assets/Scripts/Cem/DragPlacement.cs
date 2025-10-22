@@ -69,7 +69,18 @@ public class DragPlacement : MonoBehaviour
         {
             if (data) world.y += data.yOffset;
             if (rules == null || rules.CanPlaceAt(world, data))
-            Instantiate(data.prefab, world, Quaternion.identity, mapRoot);
+            {
+                if (GameManager.Instance.TrySpend(data.cost))
+                {
+                    Debug.Log("Yeni paran harcadıktan sonra :" + GameManager.Instance?.money);
+                    Instantiate(data.prefab, world, Quaternion.identity, mapRoot);
+                    GameManager.Instance?.AddUnit();
+                }
+                else
+                {
+                    Debug.Log("Para yok");
+                }
+            }
         }
 
         if (rangeGameObject) Destroy(rangeGameObject); rangeGameObject = null; rangeRenderer = null;

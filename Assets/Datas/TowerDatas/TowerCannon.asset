@@ -15,7 +15,7 @@ MonoBehaviour:
   towerName: Cannon
   prefab: {fileID: 7095898941809764635, guid: f4777b4e51898a64bad0ed999adf59cd, type: 3}
   ghostPrefab: {fileID: 3739642808878933684, guid: fdc4134d2114c14408ee094c8ebfb6ae, type: 3}
-  cost: 0
+  cost: 100
   yOffset: 0
   footprintRadius: 0.4
   range: 1

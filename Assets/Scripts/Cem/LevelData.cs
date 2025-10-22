@@ -4,8 +4,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "LevelData", menuName = "TD/Level Data")]
 public class LevelData : ScriptableObject
 {
-
-
+    public int levelHealth;
+    public int levelStartupMoney;
+    public int maxUnits;
     public string levelName;
     public Vector2Int gridSize; 
 

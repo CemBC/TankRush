@@ -15,7 +15,7 @@ MonoBehaviour:
   towerName: ballista
   prefab: {fileID: 8303751265307553776, guid: 99ea1ff22c70e1f40b14fd54774b386b, type: 3}
   ghostPrefab: {fileID: 4941914482703099837, guid: f3b09a6bf041d174788e85d88564fc27, type: 3}
-  cost: 0
+  cost: 100
   yOffset: 0
   footprintRadius: 0.4
   range: 1

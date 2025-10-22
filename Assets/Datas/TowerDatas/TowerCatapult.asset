@@ -15,7 +15,7 @@ MonoBehaviour:
   towerName: Catapult
   prefab: {fileID: 3977423294612255744, guid: 05d72e353e325c74088d493a5e3211d2, type: 3}
   ghostPrefab: {fileID: 1092194369512770973, guid: ea6f9cfdcd359a34bb75cf302d9ab9a5, type: 3}
-  cost: 0
+  cost: 200
   yOffset: 0
   footprintRadius: 0.4
   range: 2.5

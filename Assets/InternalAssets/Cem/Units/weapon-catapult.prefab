@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerUnit
   XIcon: {fileID: 4436172734213851224}
-  UpdateIcon: {fileID: 8696158019620976323}
+  UpgradeIcon: {fileID: 8696158019620976323}
   data: {fileID: 11400000, guid: a3c0e351bc0030d4b8ecd21b722fc1c2, type: 2}
   projectilePrefab: {fileID: 2985287228651492725, guid: 070cec14db49b0544b164f9df1f94887, type: 3}
   projectileSpeed: 30
@@ -372,7 +372,7 @@ GameObject:
   - component: {fileID: 3205862790638167673}
   - component: {fileID: 5136686030784613381}
   m_Layer: 3
-  m_Name: UpdateIcon
+  m_Name: UpgradeIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

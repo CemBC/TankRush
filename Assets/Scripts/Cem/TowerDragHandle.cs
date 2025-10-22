@@ -32,8 +32,13 @@ public class TowerDragHandle : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     public void OnEndDrag(PointerEventData e)
     {
         if (group)
+        group.blocksRaycasts = true;
+
+        if (GameManager.Instance != null && !GameManager.Instance.CanPlaceUnit())
         {
-            group.blocksRaycasts = true;
+            Debug.Log("Max Unit geçildi");   
+            DragPlacement.Instance?.EndGhost(place: false, screenPos: e.position);
+            return;
         }
         DragPlacement.Instance?.EndGhost(place: true, screenPos: e.position);
     }

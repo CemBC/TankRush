@@ -79,7 +79,9 @@ public class TowerUnit : MonoBehaviour, IPointerClickHandler
         {
             if (RayHitsObject(XIcon))
             {
+                GameManager.Instance?.RemoveUnit();
                 Destroy(gameObject);
+                
                 return;
             }
             if (RayHitsObject(this.gameObject))
@@ -213,7 +215,7 @@ public class TowerUnit : MonoBehaviour, IPointerClickHandler
         uiVisible = false;
     }
 
-    bool RayHitsObject(GameObject target)
+    bool RayHitsObject(GameObject target)  //boşa tıklama için kontrol
     {
         if (target == null) return false;
 
