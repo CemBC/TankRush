@@ -6,6 +6,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public RectTransform envanterBar;
+    public RectTransform whiteArrow;
+    private bool isHidden = false;
+    private Vector2 shownPos;
+    private Vector2 hiddenPos;
     public LevelData currentLevel;
     public int maxUnits = 5;
     private int currentUnits = 0;
@@ -33,6 +38,9 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        shownPos = envanterBar.anchoredPosition;
+        hiddenPos = shownPos + new Vector2(envanterBar.rect.width-5, 0);
+
         if (currentLevel != null)
         {
             maxUnits = currentLevel.maxUnits;
@@ -159,4 +167,23 @@ public class GameManager : MonoBehaviour
             healthText.text = health.ToString();
     }
     #endregion
+
+    public void ToggleEnvanterBar()
+    {
+        envanterBar.DOKill();
+        if (isHidden)
+        {
+            envanterBar.DOAnchorPos(shownPos, 0.35f).SetEase(Ease.OutBack);
+            whiteArrow.localEulerAngles = new Vector3(0f, 0f, -90);
+            isHidden = false;
+        }
+        else
+        {
+            envanterBar.DOAnchorPos(hiddenPos, 0.35f).SetEase(Ease.InBack).OnComplete(() =>
+            {
+               whiteArrow.localEulerAngles = new Vector3(0f, 0f, 90); 
+            });
+            isHidden = true;
+        }
+    }
 }
