@@ -18,4 +18,6 @@ public class LevelData : ScriptableObject
     public string[] decorRows;
 
      public List<Vector3> waypointPositions = new List<Vector3>();
+    public List<WaveData> waves = new List<WaveData>();
+
 }

@@ -366,10 +366,6 @@ MonoBehaviour:
   wayPoints: []
   targetPoint: 0
   moveSpeed: 2
-  deathAnimDuration: 2
-  deadBodyStayTime: 3
-  fadeDuration: 2
-  deathEffect: {fileID: 0}
 --- !u!136 &-8993023685466269377
 CapsuleCollider:
   m_ObjectHideFlags: 0
