@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class WaypointManager : MonoBehaviour
 {
-    public List<Transform> wayPoints = new List<Transform>(); // 👈 Artık List
+    public List<Transform> wayPoints = new List<Transform>(); 
     public int targetPoint = 0;
     public float moveSpeed = 2f;
 
@@ -18,7 +18,7 @@ public class WaypointManager : MonoBehaviour
             targetPoint++;
             if (targetPoint >= wayPoints.Count)
             {
-                Destroy(gameObject); // sona ulaşınca yok ol
+                Destroy(gameObject); 
                 return;
             }
         }

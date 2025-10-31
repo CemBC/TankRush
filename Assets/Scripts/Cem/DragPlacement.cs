@@ -72,13 +72,12 @@ public class DragPlacement : MonoBehaviour
             {
                 if (GameManager.Instance.TrySpend(data.cost))
                 {
-                    Debug.Log("Yeni paran harcadıktan sonra :" + GameManager.Instance?.money);
                     Instantiate(data.prefab, world, Quaternion.identity, mapRoot);
                     GameManager.Instance?.AddUnit();
                 }
                 else
                 {
-                    Debug.Log("Para yok");
+                    GameManager.Instance.NoMoneyFeedback();
                 }
             }
         }

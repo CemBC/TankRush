@@ -36,7 +36,7 @@ public class TowerDragHandle : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
         if (GameManager.Instance != null && !GameManager.Instance.CanPlaceUnit())
         {
-            Debug.Log("Max Unit geçildi");   
+            GameManager.Instance.MaxUnitFeedBack();
             DragPlacement.Instance?.EndGhost(place: false, screenPos: e.position);
             return;
         }
