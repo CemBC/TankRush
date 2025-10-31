@@ -50,9 +50,9 @@ public class EnemySpawner : MonoBehaviour
     Vector3 spawnPos = spawnPoint ? spawnPoint.position : transform.position;
 
     GameObject enemy = Instantiate(prefab, spawnPos, Quaternion.identity);
+    enemy.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
 
     // 👇 Ekledik — her düşmanı doğar doğmaz resetliyor
-    enemy.transform.localScale = Vector3.one;
     enemy.transform.rotation = Quaternion.identity;
 
     WaypointManager wp = enemy.GetComponent<WaypointManager>();
