@@ -1418,11 +1418,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaypointManager
   wayPoints: []
   targetPoint: 0
-  moveSpeed: 2
-  deathAnimDuration: 2
-  deadBodyStayTime: 3
-  fadeDuration: 2
-  deathEffect: {fileID: 0}
+  moveSpeed: 0.75
+  rotationSpeed: 3
 --- !u!136 &8341836272255695073
 CapsuleCollider:
   m_ObjectHideFlags: 0

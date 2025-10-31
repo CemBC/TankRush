@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TMP_Text currentUnitText;
 
+    
+
     void Awake()
     {
         if (Instance != null && Instance != this)

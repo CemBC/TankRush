@@ -365,7 +365,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaypointManager
   wayPoints: []
   targetPoint: 0
-  moveSpeed: 2
+  moveSpeed: 0.5
+  rotationSpeed: 5
 --- !u!136 &-8993023685466269377
 CapsuleCollider:
   m_ObjectHideFlags: 0
