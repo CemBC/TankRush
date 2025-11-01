@@ -26,29 +26,21 @@ MonoBehaviour:
   decorRows:
   - 'T T T S  . . . . '
   waypointPositions:
-  - {x: 4.024, y: 0.513, z: 4.194}
-  - {x: 4.024, y: 0.513, z: 2.948}
-  - {x: 4.024, y: 0.513, z: 2.513}
-  - {x: 3.963, y: 0.513, z: 2.23}
-  - {x: 3.749, y: 0.513, z: 1.978}
-  - {x: 3.199, y: 0.513, z: 1.978}
-  - {x: 0.096, y: 0.513, z: 1.978}
+  - {x: 4.024, y: 0.266, z: 4.194}
+  - {x: 4.024, y: 0.266, z: 2.948}
+  - {x: 4.024, y: 0.266, z: 2.513}
+  - {x: 3.963, y: 0.266, z: 2.23}
+  - {x: 3.749, y: 0.266, z: 1.978}
+  - {x: 3.199, y: 0.266, z: 1.978}
+  - {x: 0.096, y: 0.266, z: 1.978}
+  - {x: -0.69, y: 0.266, z: 1.978}
   waves:
   - waveName: Wave 1
-    spawnInterval: 0.5
-    delayBeforeNextWave: 5
+    spawnInterval: 3
     enemyTokens:
-    - S
-    - S
-    - S
-    - S
-    - S
+    - W
+    - C
     - D
-  - waveName: Wave 2
-    spawnInterval: 0.5
-    delayBeforeNextWave: 5
-    enemyTokens:
+    - M
     - S
-    - D
-    - D
-    - D
+    - T
