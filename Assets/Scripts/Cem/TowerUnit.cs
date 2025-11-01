@@ -181,13 +181,20 @@ public class TowerUnit : MonoBehaviour, IPointerClickHandler
     {
         GameObject gameObject = Instantiate(
             projectilePrefab,
-            transform.position,
+            transform.position + Vector3.up * 0.2f,
             Quaternion.LookRotation(new Vector3(direction.x, 0f, direction.z), Vector3.up)
         );
 
         var projectile = gameObject.GetComponent<Projectile>();
         if (!projectile) projectile = gameObject.AddComponent<Projectile>();
-        projectile.Init(direction, projectileSpeed, projectileLifeTime, projectileRadius, projectilePierce, enemyMask, data.range);
+        projectile.Init(direction,
+         projectileSpeed,
+          projectileLifeTime,
+           projectileRadius,
+            projectilePierce,
+             enemyMask,
+              data.range,
+              data.damage);
     }
 
 

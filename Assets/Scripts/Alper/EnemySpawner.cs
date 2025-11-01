@@ -1,65 +1,100 @@
-using System.Collections;
 using UnityEngine;
+using UnityEngine.UI; 
+using System.Collections;
+using System.Collections.Generic;
 
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Level Settings")]
     public LevelData levelData;
-    public Transform spawnPoint; // Haritanın başı
+    public Transform spawnPoint;
 
+    [Header("Enemy Token Data")]
+    public List<TokenData> tokenDataList = new List<TokenData>();
+
+    private Dictionary<string, TokenData> tokenDictionary;
     private Transform[] waypoints;
+    public Button spawnButton; 
+    private bool isWaveActive = false; 
+    private int currentWaveIndex = 0; 
+
+    void Awake()
+    {
+        tokenDictionary = new Dictionary<string, TokenData>();
+        foreach (var tokenData in tokenDataList)
+        {
+            if (!tokenDictionary.ContainsKey(tokenData.token))
+                tokenDictionary.Add(tokenData.token, tokenData);
+        }
+    }
 
     void Start()
     {
         if (PathProvider.Instance != null)
             waypoints = PathProvider.Instance.GetWaypoints();
 
-        StartCoroutine(SpawnAllWaves());
-    }
-
-    IEnumerator SpawnAllWaves()
-    {
-        for (int i = 0; i < levelData.waves.Count; i++)
+        if (spawnButton != null)
         {
-            WaveData wave = levelData.waves[i];
-            Debug.Log($"🌊 Başladı: {wave.waveName}");
-
-            yield return StartCoroutine(SpawnWave(wave));
-
-            Debug.Log($"✅ {wave.waveName} tamamlandı.");
-            yield return new WaitForSeconds(wave.delayBeforeNextWave);
+            spawnButton.onClick.AddListener(OnSpawnButtonClicked);
+            spawnButton.interactable = true; 
         }
-
-        Debug.Log("🎉 Tüm wave'ler tamamlandı!");
     }
 
-    IEnumerator SpawnWave(WaveData wave)
+    public void OnSpawnButtonClicked()
     {
-        for (int i = 0; i < wave.enemyCount; i++)
+        if (!isWaveActive && currentWaveIndex < levelData.waves.Count)
         {
-            SpawnEnemy(wave);
+            StartCoroutine(SpawnWave(levelData.waves[currentWaveIndex])); 
+            isWaveActive = true;
+            spawnButton.interactable = false; 
+        }
+    }
+
+    public IEnumerator SpawnWave(WaveData wave)
+    {
+        for (int i = 0; i < wave.enemyTokens.Count; i++)
+        {
+            string token = wave.enemyTokens[i];
+            SpawnEnemyByToken(token);
             yield return new WaitForSeconds(wave.spawnInterval);
         }
+        yield return new WaitUntil(CheckWaveCompletion);
+        currentWaveIndex++; 
+        if (currentWaveIndex >= levelData.waves.Count)
+            {
+            Debug.Log("Waveler bitti");
+
+            }
     }
-
-    void SpawnEnemy(WaveData wave)
-{
-    if (wave.enemyPrefabs.Length == 0) return;
-
-    GameObject prefab = wave.enemyPrefabs[Random.Range(0, wave.enemyPrefabs.Length)];
-    Vector3 spawnPos = spawnPoint ? spawnPoint.position : transform.position;
-
-    GameObject enemy = Instantiate(prefab, spawnPos, Quaternion.identity);
-    enemy.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
-
-    // 👇 Ekledik — her düşmanı doğar doğmaz resetliyor
-    enemy.transform.rotation = Quaternion.identity;
-
-    WaypointManager wp = enemy.GetComponent<WaypointManager>();
-    if (wp != null && PathProvider.Instance != null)
+    public void SpawnEnemyByToken(string token)
     {
-        wp.wayPoints = new System.Collections.Generic.List<Transform>(PathProvider.Instance.GetWaypoints());
-        wp.moveSpeed = Random.Range(1.5f, 3f);
+        if (string.IsNullOrEmpty(token)) return;
+        if (!tokenDictionary.ContainsKey(token))
+        {
+            return;
+        }
+        TokenData tokenData = tokenDictionary[token];
+        GameObject prefab = tokenData.prefab;
+        Vector3 spawnPosition = spawnPoint ? spawnPoint.position : transform.position;
+        GameObject enemy = Instantiate(prefab, spawnPosition, Quaternion.identity);
+        tokenData.ApplyTo(enemy);
+
+        WaypointManager wp = enemy.GetComponent<WaypointManager>();
+        if (wp != null && PathProvider.Instance != null)
+        {
+            wp.wayPoints = new List<Transform>(PathProvider.Instance.GetWaypoints());
+        }
     }
-}
+
+    private bool CheckWaveCompletion()
+    {
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+        {
+            isWaveActive = false;
+            spawnButton.interactable = true;
+            
+            return true;
+        }
+        return false;
+    }
 }

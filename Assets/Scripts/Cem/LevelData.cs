@@ -8,16 +8,14 @@ public class LevelData : ScriptableObject
     public int levelStartupMoney;
     public int maxUnits;
     public string levelName;
-    public Vector2Int gridSize; 
+    public Vector2Int gridSize;
 
     [Header("Terrain Layer")]
     public string[] terrainRows;
 
     [Header("Decor Layer")]
-
     public string[] decorRows;
 
-     public List<Vector3> waypointPositions = new List<Vector3>();
+    public List<Vector3> waypointPositions = new List<Vector3>();
     public List<WaveData> waves = new List<WaveData>();
-
 }

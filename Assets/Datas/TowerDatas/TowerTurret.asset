@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6fd00ab30e19141a74070ece01046a, type: 3}
   m_Name: TowerTurret
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
+  damage: 5
   towerName: Turret
   prefab: {fileID: 36538896174184612, guid: 8d814b7d630693f4fb0b23c5deac24b6, type: 3}
   ghostPrefab: {fileID: 1846801576090195129, guid: 973ca329211e01446a006595bc2f4a27, type: 3}

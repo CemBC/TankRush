@@ -26,24 +26,21 @@ MonoBehaviour:
   decorRows:
   - 'T T T S  . . . . '
   waypointPositions:
-  - {x: 4.024, y: 0.513, z: 4.194}
-  - {x: 4.024, y: 0.513, z: 2.948}
-  - {x: 4.024, y: 0.513, z: 2.513}
-  - {x: 3.963, y: 0.513, z: 2.23}
-  - {x: 3.749, y: 0.513, z: 1.978}
-  - {x: 3.199, y: 0.513, z: 1.978}
-  - {x: 0.096, y: 0.513, z: 1.978}
+  - {x: 4.024, y: 0.266, z: 4.194}
+  - {x: 4.024, y: 0.266, z: 2.948}
+  - {x: 4.024, y: 0.266, z: 2.513}
+  - {x: 3.963, y: 0.266, z: 2.23}
+  - {x: 3.749, y: 0.266, z: 1.978}
+  - {x: 3.199, y: 0.266, z: 1.978}
+  - {x: 0.096, y: 0.266, z: 1.978}
+  - {x: -0.69, y: 0.266, z: 1.978}
   waves:
   - waveName: Wave 1
-    enemyPrefabs:
-    - {fileID: 6345018766707930523, guid: ae2333dccc9442c428145f00468eb9b4, type: 3}
-    enemyCount: 5
-    spawnInterval: 1.5
-    delayBeforeNextWave: 5
-  - waveName: Wave 2
-    enemyPrefabs:
-    - {fileID: 6345018766707930523, guid: ae2333dccc9442c428145f00468eb9b4, type: 3}
-    - {fileID: 4695948280685604982, guid: e08be570aca7ead4f8b015db4265e60e, type: 3}
-    enemyCount: 8
-    spawnInterval: 1
-    delayBeforeNextWave: 5
+    spawnInterval: 3
+    enemyTokens:
+    - W
+    - C
+    - D
+    - M
+    - S
+    - T

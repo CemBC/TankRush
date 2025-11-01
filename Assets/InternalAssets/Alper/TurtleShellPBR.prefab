@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: -997782218864461940}
   m_Layer: 9
   m_Name: TurtleShellPBR
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,8 +125,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.27, y: 0, z: -3.65}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.4, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6313640386139429623}
   - {fileID: 6832003579874252084}
@@ -167,12 +167,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaypointManager
   wayPoints: []
-  targetPoint: 0
   moveSpeed: 2
-  deathAnimDuration: 2
-  deadBodyStayTime: 3
-  fadeDuration: 2
-  deathEffect: {fileID: 0}
+  rotationSpeed: 5
+  maxHealth: 100
+  rewardMoney: 1
+  heathReduction: 1
 --- !u!136 &-997782218864461940
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -192,10 +191,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.78622293
+  m_Height: 1.5724459
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.39200747, z: -0.05667734}
 --- !u!1 &1517747216079891874
 GameObject:
   m_ObjectHideFlags: 0
