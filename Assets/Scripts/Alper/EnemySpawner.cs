@@ -1,6 +1,7 @@
+using UnityEngine;
+using UnityEngine.UI; 
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -11,16 +12,19 @@ public class EnemySpawner : MonoBehaviour
     [Header("Enemy Token Data")]
     public List<TokenData> tokenDataList = new List<TokenData>();
 
-    private Dictionary<string, TokenData> tokenDict;
+    private Dictionary<string, TokenData> tokenDictionary;
     private Transform[] waypoints;
+    public Button spawnButton; 
+    private bool isWaveActive = false; 
+    private int currentWaveIndex = 0; 
 
     void Awake()
     {
-        tokenDict = new Dictionary<string, TokenData>();
+        tokenDictionary = new Dictionary<string, TokenData>();
         foreach (var tokenData in tokenDataList)
         {
-            if (!tokenDict.ContainsKey(tokenData.token))
-                tokenDict.Add(tokenData.token, tokenData);
+            if (!tokenDictionary.ContainsKey(tokenData.token))
+                tokenDictionary.Add(tokenData.token, tokenData);
         }
     }
 
@@ -29,16 +33,20 @@ public class EnemySpawner : MonoBehaviour
         if (PathProvider.Instance != null)
             waypoints = PathProvider.Instance.GetWaypoints();
 
-        StartCoroutine(SpawnAllWaves());
+        if (spawnButton != null)
+        {
+            spawnButton.onClick.AddListener(OnSpawnButtonClicked);
+            spawnButton.interactable = true; 
+        }
     }
 
-    public IEnumerator SpawnAllWaves()
+    public void OnSpawnButtonClicked()
     {
-        for (int i = 0; i < levelData.waves.Count; i++)
+        if (!isWaveActive && currentWaveIndex < levelData.waves.Count)
         {
-            WaveData wave = levelData.waves[i];
-            yield return StartCoroutine(SpawnWave(wave));
-            yield return new WaitForSeconds(wave.delayBeforeNextWave);
+            StartCoroutine(SpawnWave(levelData.waves[currentWaveIndex])); 
+            isWaveActive = true;
+            spawnButton.interactable = false; 
         }
     }
 
@@ -50,25 +58,43 @@ public class EnemySpawner : MonoBehaviour
             SpawnEnemyByToken(token);
             yield return new WaitForSeconds(wave.spawnInterval);
         }
-    }
+        yield return new WaitUntil(CheckWaveCompletion);
+        currentWaveIndex++; 
+        if (currentWaveIndex >= levelData.waves.Count)
+            {
+            Debug.Log("Waveler bitti");
 
+            }
+    }
     public void SpawnEnemyByToken(string token)
     {
         if (string.IsNullOrEmpty(token)) return;
-        if (!tokenDict.ContainsKey(token))
+        if (!tokenDictionary.ContainsKey(token))
         {
-            Debug.LogWarning($"SpawnEnemyByToken: Bu token için prefab bulunamadı: {token}");
             return;
         }
-        TokenData tokenData = tokenDict[token];
+        TokenData tokenData = tokenDictionary[token];
         GameObject prefab = tokenData.prefab;
-        Vector3 spawnPos = spawnPoint ? spawnPoint.position : transform.position;
-        GameObject enemy = Instantiate(prefab, spawnPos, Quaternion.identity);
+        Vector3 spawnPosition = spawnPoint ? spawnPoint.position : transform.position;
+        GameObject enemy = Instantiate(prefab, spawnPosition, Quaternion.identity);
         tokenData.ApplyTo(enemy);
+
         WaypointManager wp = enemy.GetComponent<WaypointManager>();
         if (wp != null && PathProvider.Instance != null)
         {
             wp.wayPoints = new List<Transform>(PathProvider.Instance.GetWaypoints());
         }
+    }
+
+    private bool CheckWaveCompletion()
+    {
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+        {
+            isWaveActive = false;
+            spawnButton.interactable = true;
+            
+            return true;
+        }
+        return false;
     }
 }

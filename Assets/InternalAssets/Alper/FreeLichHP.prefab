@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: -6947786904923783334}
   m_Layer: 9
   m_Name: FreeLichHP
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -265,10 +265,7 @@ MonoBehaviour:
   wayPoints: []
   targetPoint: 0
   moveSpeed: 2
-  deathAnimDuration: 2
-  deadBodyStayTime: 3
-  fadeDuration: 2
-  deathEffect: {fileID: 0}
+  rotationSpeed: 5
 --- !u!136 &-6947786904923783334
 CapsuleCollider:
   m_ObjectHideFlags: 0

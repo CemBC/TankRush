@@ -8,6 +8,7 @@ public class WaypointManager : MonoBehaviour
     public float moveSpeed = 2f;
     public float rotationSpeed = 10f;
 
+
     void Start()
     {
         LookAt();
@@ -24,19 +25,17 @@ public class WaypointManager : MonoBehaviour
             targetPoint++;
             if (targetPoint >= wayPoints.Count)
             {
-                Destroy(gameObject);
+                Destroy(gameObject); 
                 return;
             }
         }
 
-        
         transform.position = Vector3.MoveTowards(
             transform.position,
             wayPoints[targetPoint].position,
             moveSpeed * Time.deltaTime
         );
 
-        
         Vector3 direction = (wayPoints[targetPoint].position - transform.position).normalized;
         if (direction != Vector3.zero)
         {
