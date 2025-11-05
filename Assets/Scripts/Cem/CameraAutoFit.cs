@@ -7,7 +7,10 @@ public class CameraAutoFit : MonoBehaviour
     public LevelData level;  
     public float tileSize = 1f;
     public float padding = 0.5f;
-
+    void Awake()
+    {
+        level = LevelRuntimePasser.Current;
+    }
     public void Fit()
     {
         if (cam == null || level == null 

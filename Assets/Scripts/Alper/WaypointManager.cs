@@ -4,7 +4,7 @@ using UnityEngine;
 public class WaypointManager : MonoBehaviour
 {
     public List<Transform> wayPoints = new List<Transform>();
-    private int targetPoint = 0;
+    private int targetPoint = 1;
     public float moveSpeed = 2f;
     public float rotationSpeed = 10f;
     public float maxHealth;

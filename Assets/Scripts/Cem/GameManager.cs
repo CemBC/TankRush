@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public List<GameObject> unitButtons; 
     public RectTransform envanterBar;
     public RectTransform whiteArrow;
     private bool isHidden = false;
@@ -36,6 +38,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
+        currentLevel = LevelRuntimePasser.Current;
         DontDestroyOnLoad(gameObject);
     }
     void Start()
@@ -57,10 +60,13 @@ public class GameManager : MonoBehaviour
         {
             defaultMoneyColor = moneyText.color;
         }
-        if(currentUnitText != null)
+        if (currentUnitText != null)
         {
             defaultUnitColor = currentUnitText.color;
         }
+
+        ApplyUnitAvailability();
+        
         UpdateMoneyUI();
         Debug.Log("başlangıç paran:" + money);
         Debug.Log("başlangıç canın:" + health);
@@ -183,9 +189,22 @@ public class GameManager : MonoBehaviour
         {
             envanterBar.DOAnchorPos(hiddenPos, 0.35f).SetEase(Ease.InBack).OnComplete(() =>
             {
-               whiteArrow.localEulerAngles = new Vector3(0f, 0f, 90); 
+                whiteArrow.localEulerAngles = new Vector3(0f, 0f, 90);
             });
             isHidden = true;
+        }
+    }
+    
+    private void ApplyUnitAvailability()
+    {
+        if (unitButtons == null || unitButtons.Count == 0)
+        {
+            return;
+        }
+        for (int i = 0; i < unitButtons.Count; i++)
+        {
+            bool isActive = i < currentLevel.unitAvailability.Count ? currentLevel.unitAvailability[i] : false;
+            unitButtons[i].SetActive(isActive);
         }
     }
 }

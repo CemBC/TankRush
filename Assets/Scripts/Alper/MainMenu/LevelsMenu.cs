@@ -16,10 +16,9 @@ public class LevelsMenu : MonoBehaviour
         levelsMenu.SetActive(false);
     }
 
-    public void LoadLevel(string sceneName)
+    public void LoadLevel(LevelData data)
     {
-        // Opsiyonel: küçük bir ses efekti oynatabilirsin burada
-        Debug.Log($"Loading level: {sceneName}");
-        SceneManager.LoadScene(sceneName);
+        LevelRuntimePasser.Current = data;
+        SceneManager.LoadScene("GameScene");
     }
 }

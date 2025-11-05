@@ -7,7 +7,6 @@ public class EnemySpawner : MonoBehaviour
 {
     [Header("Level Settings")]
     public LevelData levelData;
-    public Transform spawnPoint;
 
     [Header("Enemy Token Data")]
     public List<TokenData> tokenDataList = new List<TokenData>();
@@ -20,6 +19,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Awake()
     {
+        levelData = LevelRuntimePasser.Current;
         tokenDictionary = new Dictionary<string, TokenData>();
         foreach (var tokenData in tokenDataList)
         {
@@ -75,7 +75,15 @@ public class EnemySpawner : MonoBehaviour
         }
         TokenData tokenData = tokenDictionary[token];
         GameObject prefab = tokenData.prefab;
-        Vector3 spawnPosition = spawnPoint ? spawnPoint.position : transform.position;
+       Vector3 spawnPosition;
+        if (levelData != null && levelData.waypointPositions != null && levelData.waypointPositions.Count > 0)
+        {
+            spawnPosition = levelData.waypointPositions[0];
+        }
+        else
+        {
+            spawnPosition = transform.position;
+        }
         GameObject enemy = Instantiate(prefab, spawnPosition, Quaternion.identity);
         tokenData.ApplyTo(enemy);
 
