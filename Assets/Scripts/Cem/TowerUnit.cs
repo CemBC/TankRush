@@ -81,7 +81,12 @@ public class TowerUnit : MonoBehaviour, IPointerClickHandler
             {
                 GameManager.Instance?.RemoveUnit();
                 Destroy(gameObject);
-                
+
+                return;
+            } 
+            if (RayHitsObject(UpgradeIcon))
+            {
+                TryUpgrade();
                 return;
             }
             if (RayHitsObject(this.gameObject))
@@ -226,12 +231,12 @@ public class TowerUnit : MonoBehaviour, IPointerClickHandler
     {
         if (target == null) return false;
 
-        var cam   = Camera.main;
+        var cam = Camera.main;
         var mouse = Mouse.current;
 
         if (cam == null) return false;
 
-         Vector2 screenPos;
+        Vector2 screenPos;
         if (mouse != null)
             screenPos = mouse.position.ReadValue();
         else if (Touchscreen.current != null)
@@ -245,6 +250,35 @@ public class TowerUnit : MonoBehaviour, IPointerClickHandler
             return hit.transform == target.transform || hit.transform.IsChildOf(target.transform);
         }
         return false;
+    }
+    
+
+    void TryUpgrade()
+    {
+        if (data.nextUpgrade == null)
+        {
+            Debug.Log("Bu kule en üst seviyede!");
+            return;
+        }
+        if (GameManager.Instance != null &&
+            GameManager.Instance.TrySpend(data.upgradeCost))
+        {
+            Vector3 pos = transform.position;
+            Transform parent = transform.parent;
+
+            GameObject newTower = Instantiate(
+                data.nextUpgrade,
+                pos,
+                Quaternion.identity,
+                parent
+            );
+
+            Destroy(gameObject);
+        }
+        else
+        {
+            GameManager.Instance.NoMoneyFeedback();
+        }
     }
 
 }

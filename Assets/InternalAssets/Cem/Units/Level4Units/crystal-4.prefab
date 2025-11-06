@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 2678544053211240512}
   - component: {fileID: 3683508689698285092}
   - component: {fileID: 7287637057022906806}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: crystal-small_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 6218331873571439897}
   - component: {fileID: 3772768936492898731}
   - component: {fileID: 6779188979118955875}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: crystal-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 1629473592191268738}
   - component: {fileID: 176255879700844431}
   - component: {fileID: 1561525002227670823}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: crystal-small_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +443,7 @@ GameObject:
   - component: {fileID: 7083807201864145011}
   - component: {fileID: 683140162104559444}
   - component: {fileID: 3547280452054157906}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: crystal-small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -532,7 +532,7 @@ GameObject:
   - component: {fileID: 8956259523382974394}
   - component: {fileID: 6405001521833683471}
   - component: {fileID: 5359396683220117074}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: crystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 5581518630432028145}
   - component: {fileID: 2703895176093653245}
   - component: {fileID: 6425536115417562724}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: crystal-small_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

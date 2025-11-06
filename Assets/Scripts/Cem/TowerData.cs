@@ -7,7 +7,10 @@ public class TowerData : ScriptableObject
     public float damage;
     public string towerName;
     public GameObject prefab;
-    public GameObject ghostPrefab;  
+    public GameObject ghostPrefab;
+
+    public GameObject nextUpgrade;
+    public int upgradeCost;
     public int cost = 0;
 
     [Header("Placement")]

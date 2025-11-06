@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a6fd00ab30e19141a74070ece01046a, type: 3}
-  m_Name: TowerCatapult
+  m_Name: TowerCatapult-4
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
   damage: 10
-  towerName: Catapult
-  prefab: {fileID: 3977423294612255744, guid: 05d72e353e325c74088d493a5e3211d2, type: 3}
-  ghostPrefab: {fileID: 1092194369512770973, guid: ea6f9cfdcd359a34bb75cf302d9ab9a5, type: 3}
-  cost: 200
+  towerName: Catapult-4
+  prefab: {fileID: 3084574009945879272, guid: e077adf327a69c3448f8818f757f6e72, type: 3}
+  ghostPrefab: {fileID: 0}
+  nextUpgrade: {fileID: 8502661332425194632, guid: 726141f6986e8594797f99940b45dd05, type: 3}
+  upgradeCost: 100
+  cost: 0
   yOffset: 0
   footprintRadius: 0.4
   range: 2.5

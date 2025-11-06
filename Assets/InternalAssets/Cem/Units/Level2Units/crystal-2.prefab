@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 7300371807888001919}
   - component: {fileID: 8041036384595386176}
   - component: {fileID: 8463169639465038096}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: crystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 7323433570667613368}
   - component: {fileID: 5412534322001407787}
   - component: {fileID: 601092851612498685}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: crystal-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

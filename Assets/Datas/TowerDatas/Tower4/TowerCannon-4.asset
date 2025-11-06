@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a6fd00ab30e19141a74070ece01046a, type: 3}
-  m_Name: TowerBalista
+  m_Name: TowerCannon-4
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
-  damage: 1
-  towerName: ballista
-  prefab: {fileID: 8303751265307553776, guid: 99ea1ff22c70e1f40b14fd54774b386b, type: 3}
-  ghostPrefab: {fileID: 4941914482703099837, guid: f3b09a6bf041d174788e85d88564fc27, type: 3}
-  cost: 100
+  damage: 3
+  towerName: Cannon-4
+  prefab: {fileID: 6540356918602884020, guid: b348875bcb0f0ce48a460cad7de36695, type: 3}
+  ghostPrefab: {fileID: 0}
+  nextUpgrade: {fileID: 2215961546850998559, guid: 22182e310565f784aa7ee7ad04000ab9, type: 3}
+  upgradeCost: 100
+  cost: 0
   yOffset: 0
   footprintRadius: 0.4
   range: 1
-  attackSpeed: 2
+  attackSpeed: 1.2

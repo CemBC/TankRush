@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a6fd00ab30e19141a74070ece01046a, type: 3}
-  m_Name: TowerCannon
+  m_Name: TowerTurret-5
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
-  damage: 3
-  towerName: Cannon
-  prefab: {fileID: 7095898941809764635, guid: f4777b4e51898a64bad0ed999adf59cd, type: 3}
-  ghostPrefab: {fileID: 3739642808878933684, guid: fdc4134d2114c14408ee094c8ebfb6ae, type: 3}
-  cost: 100
+  damage: 5
+  towerName: Turret-5
+  prefab: {fileID: 7497324321548993389, guid: f941d7252b8002a4fab903be36c1dc2f, type: 3}
+  ghostPrefab: {fileID: 0}
+  nextUpgrade: {fileID: 0}
+  upgradeCost: 0
+  cost: 0
   yOffset: 0
   footprintRadius: 0.4
-  range: 1
-  attackSpeed: 1.2
+  range: 2
+  attackSpeed: 3
