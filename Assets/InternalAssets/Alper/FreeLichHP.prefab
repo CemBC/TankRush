@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaypointManager
   wayPoints: []
-  moveSpeed: 0.5
+  baseSpeed: 1
   rotationSpeed: 5
   maxHealth: 100
   rewardMoney: 1

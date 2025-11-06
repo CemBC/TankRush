@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,13 +6,21 @@ public class WaypointManager : MonoBehaviour
 {
     public List<Transform> wayPoints = new List<Transform>();
     private int targetPoint = 1;
-    public float moveSpeed = 2f;
+    public float baseSpeed = 2f;
+    private float currentSpeed;
     public float rotationSpeed = 10f;
     public float maxHealth;
     private float currentHealth;
     public bool IsDead => currentHealth <= 0f;
     public int rewardMoney = 1; //default 1
     public int heathReduction = 1;
+
+    Coroutine slowRoutine;
+
+    void Awake()
+    {
+        currentSpeed = baseSpeed;
+    }
     void Start()
     {
         currentHealth = maxHealth;
@@ -40,7 +49,7 @@ public class WaypointManager : MonoBehaviour
         transform.position = Vector3.MoveTowards(
             transform.position,
             wayPoints[targetPoint].position,
-            moveSpeed * Time.deltaTime
+            currentSpeed * Time.deltaTime
         );
 
         Vector3 direction = (wayPoints[targetPoint].position - transform.position).normalized;
@@ -79,5 +88,20 @@ public class WaypointManager : MonoBehaviour
             GameManager.Instance.AddMoney(rewardMoney);
         }
         Destroy(gameObject);
+    }
+
+    public void ApplySlow(float multiplier, float duration)
+    {
+        if (slowRoutine != null) StopCoroutine(slowRoutine);
+        slowRoutine = StartCoroutine(SlowCo(multiplier, duration));
+    }
+
+    IEnumerator SlowCo(float multiplier, float duration)
+    {
+        currentSpeed = baseSpeed * Mathf.Clamp(multiplier, 0.05f, 10f);
+        Debug.Log("Slow Uygulandı = " + currentSpeed);
+        yield return new WaitForSeconds(duration);
+        currentSpeed = baseSpeed;
+        slowRoutine = null;
     }
 }

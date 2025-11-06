@@ -3,35 +3,35 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using System.Linq.Expressions;
 [RequireComponent(typeof(SphereCollider))]
-public class TowerUnit : MonoBehaviour, IPointerClickHandler
+public class CrystalUnit : MonoBehaviour, IPointerClickHandler
 {
+    public float enemySlowMultiplier = 0.1f;
+    public float enemySlowDuration = 1f;
+
+    public float towerAtkSpeedMultiplier = 2f;
+    public float towerBuffDuration = 2f;
+
     Vector3 xInitPos, uInitPos;
     Quaternion xInitRot, uInitRot;
     public GameObject XIcon;
     public GameObject UpgradeIcon;
-
+    public float refreshInterval;
     bool uiVisible = false;
-    int suppressClickFrame = -1;
+    int  suppressClickFrame = -1;  
 
     public TowerData data;
-
-    public float attackSpeed;
-    public GameObject projectilePrefab;
-    public float projectileSpeed;
-    public float projectileLifeTime;
-    public float projectileRadius;
-    public int projectilePierce;
-
     public LayerMask enemyMask;
+    public LayerMask towerMask;
 
     private SphereCollider rangeCollider;
-    private Transform currentTarget;
-    private Coroutine shootCoroutine;
+
+    Coroutine loop;
 
     void Awake()
     {
-        attackSpeed = data.attackSpeed;
+        refreshInterval = 1f / data.attackSpeed;
         rangeCollider = GetComponent<SphereCollider>();
         rangeCollider.isTrigger = true;
         rangeCollider.radius = data.range;
@@ -57,12 +57,47 @@ public class TowerUnit : MonoBehaviour, IPointerClickHandler
         {
             return;
         }
-        shootCoroutine = StartCoroutine(ShootLoop());
-
-
+        loop = StartCoroutine(ScanLoop());
     }
 
-    public void OnPointerClick(PointerEventData e)
+    void OnDisable()
+    {
+        if (loop != null) StopCoroutine(loop);
+    }
+    IEnumerator ScanLoop()
+    {
+        var wait = new WaitForSeconds(refreshInterval);
+        var pos = transform;
+        while (true)
+        {
+        Vector3 p = pos.position;
+            var eHits = Physics.OverlapSphere(p,rangeCollider.radius, enemyMask, QueryTriggerInteraction.Ignore);
+            for (int i = 0; i < eHits.Length; i++)
+            {
+                if (!eHits[i]) continue;
+                var enemy = eHits[i].GetComponentInParent<WaypointManager>();
+                if (enemy != null)
+                {
+                    // içeri girdikçe/taramada görüldükçe süre yenilensin
+                    enemy.ApplySlow(enemySlowMultiplier, enemySlowDuration);
+                }
+            }
+            var tHits = Physics.OverlapSphere(p, rangeCollider.radius, towerMask, QueryTriggerInteraction.Ignore);
+            for (int i = 0; i < tHits.Length; i++)
+            {
+                if (!tHits[i]) continue;
+                var tower = tHits[i].GetComponentInParent<TowerUnit>();
+                if (tower != null)
+                {
+                    tower.ApplyAttackSpeedBuff(towerAtkSpeedMultiplier, towerBuffDuration);
+                }
+            }
+
+            yield return wait;
+        }
+    }
+
+     public void OnPointerClick(PointerEventData e)
     {
         if (e.button != PointerEventData.InputButton.Left) return;
         if (Time.frameCount == suppressClickFrame) return;
@@ -71,7 +106,7 @@ public class TowerUnit : MonoBehaviour, IPointerClickHandler
         {
             ShowUI();
         }
-
+        
     }
 
     void Update()
@@ -86,7 +121,7 @@ public class TowerUnit : MonoBehaviour, IPointerClickHandler
                 Destroy(gameObject);
 
                 return;
-            }
+            } 
             if (RayHitsObject(UpgradeIcon))
             {
                 TryUpgrade();
@@ -124,91 +159,9 @@ public class TowerUnit : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    void OnDisable()
-    {
-        if (shootCoroutine != null) StopCoroutine(shootCoroutine);
-        currentTarget = null;
-    }
-
-    IEnumerator ShootLoop()
-    {
-        if (attackSpeed == 0)
-        {
-            yield break;
-        }
-        float period = 1f / attackSpeed;
-        WaitForSeconds wait = new WaitForSeconds(period);
-
-        while (true)
-        {
-            if (!IsValidTarget(currentTarget))
-                currentTarget = PickNearestInRange();
-            if (IsValidTarget(currentTarget))
-            {
-                Vector3 direction = currentTarget.position - transform.position;
-                direction.y = 0f;
-                if (direction.sqrMagnitude > 0.0001f)
-                {
-                    direction.Normalize();
-                    transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
-                    Fire(direction);
-                }
-            }
-            yield return wait;
-        }
-    }
-
-    bool IsValidTarget(Transform t)
-    {
-        if (!t) return false;
-        //buraya öldü ölmedi ya da mapten çıktı çıkmadı koyulacak ki ölene tekrardan vurmaya devam etmesin
-        return (t.position - transform.position).sqrMagnitude <= rangeCollider.radius * rangeCollider.radius;
-    }
-
-    Transform PickNearestInRange()
-    {
-        Collider[] hits = Physics.OverlapSphere(transform.position, rangeCollider.radius, enemyMask);
-        float best = float.MaxValue;
-        Transform final = null;
-        Vector3 towerPosition = transform.position;
-
-        for (int i = 0; i < hits.Length; i++)
-        {
-            if (!hits[i]) continue;
-            float distance = (hits[i].transform.position - towerPosition).sqrMagnitude;
-            if (distance < best)
-            {
-                best = distance;
-                final = hits[i].transform;
-            }
-        }
-        return final;
-    }
-
-    void Fire(Vector3 direction)
-    {
-        GameObject gameObject = Instantiate(
-            projectilePrefab,
-            transform.position + Vector3.up * 0.2f,
-            Quaternion.LookRotation(new Vector3(direction.x, 0f, direction.z), Vector3.up)
-        );
-
-        var projectile = gameObject.GetComponent<Projectile>();
-        if (!projectile) projectile = gameObject.AddComponent<Projectile>();
-        projectile.Init(direction,
-         projectileSpeed,
-          projectileLifeTime,
-           projectileRadius,
-            projectilePierce,
-             enemyMask,
-              data.range,
-              data.damage);
-    }
-
-
     void ShowUI()
     {
-        if (XIcon)
+       if (XIcon)
         {
             XIcon.transform.position = xInitPos;
             XIcon.transform.rotation = xInitRot;
@@ -254,7 +207,7 @@ public class TowerUnit : MonoBehaviour, IPointerClickHandler
         }
         return false;
     }
-
+    
 
     void TryUpgrade()
     {
@@ -282,31 +235,6 @@ public class TowerUnit : MonoBehaviour, IPointerClickHandler
         {
             GameManager.Instance.NoMoneyFeedback();
         }
-    }
-    private Coroutine atkBuffRoutine;
-    public void ApplyAttackSpeedBuff(float multiplier, float duration)
-    {
-        if (atkBuffRoutine != null) StopCoroutine(atkBuffRoutine);
-
-        multiplier = Mathf.Clamp(multiplier, 0.1f, 10f);
-        attackSpeed = data.attackSpeed * multiplier;
-        RestartShootLoop();
-        Debug.Log("AttackSpeed Arttı = " + attackSpeed);
-        atkBuffRoutine = StartCoroutine(ResetAttackSpeedAfter(duration));
-    }
-
-    IEnumerator ResetAttackSpeedAfter(float duration)
-    {
-        yield return new WaitForSeconds(duration);
-        attackSpeed = data.attackSpeed;
-        RestartShootLoop(); 
-        atkBuffRoutine = null;
-    }
-
-    void RestartShootLoop()
-    {
-        if (shootCoroutine != null) StopCoroutine(shootCoroutine);
-        shootCoroutine = StartCoroutine(ShootLoop());
     }
 
 }

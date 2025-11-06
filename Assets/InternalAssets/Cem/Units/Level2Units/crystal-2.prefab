@@ -190,9 +190,9 @@ GameObject:
   - component: {fileID: 4920605508211125468}
   - component: {fileID: 5997944637089797328}
   - component: {fileID: 9004541105151998691}
-  - component: {fileID: 7323433570667613368}
-  - component: {fileID: 5412534322001407787}
+  - component: {fileID: 4625970091945341034}
   - component: {fileID: 601092851612498685}
+  - component: {fileID: 1028132356657855630}
   m_Layer: 3
   m_Name: crystal-2
   m_TagString: Untagged
@@ -274,28 +274,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7323433570667613368
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3875444588869496292}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &5412534322001407787
+--- !u!114 &4625970091945341034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -304,20 +283,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 3875444588869496292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: defcc81b2bebfb14582b4941d28f753f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e728fc9f4ad7d04abe0f0fc3c0cebbc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TowerUnit
-  XIcon: {fileID: 6202545476723567906}
-  UpgradeIcon: {fileID: 977302944780104038}
+  m_EditorClassIdentifier: Assembly-CSharp::CrystalUnit
+  enemySlowMultiplier: 0.1
+  enemySlowDuration: 1
+  towerAtkSpeedMultiplier: 2
+  towerBuffDuration: 2
+  XIcon: {fileID: 0}
+  UpgradeIcon: {fileID: 0}
+  refreshInterval: 0
   data: {fileID: 0}
-  projectilePrefab: {fileID: 0}
-  projectileSpeed: 0
-  projectileLifeTime: 0
-  projectileRadius: 0
-  projectilePierce: 0
   enemyMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
+  towerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!65 &601092851612498685
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -339,6 +321,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.5250511, z: 1}
   m_Center: {x: 0, y: 0.76252556, z: 0}
+--- !u!135 &1028132356657855630
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3875444588869496292}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &6202545476723567906
 GameObject:
   m_ObjectHideFlags: 0
