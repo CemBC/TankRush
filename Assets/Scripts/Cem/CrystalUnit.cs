@@ -4,9 +4,11 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System.Linq.Expressions;
+using TMPro;
 [RequireComponent(typeof(SphereCollider))]
 public class CrystalUnit : MonoBehaviour, IPointerClickHandler
 {
+    public TextMeshPro upgradeCostUI;
     public float enemySlowMultiplier = 0.1f;
     public float enemySlowDuration = 1f;
 
@@ -29,6 +31,11 @@ public class CrystalUnit : MonoBehaviour, IPointerClickHandler
 
     Coroutine loop;
 
+    public Material rangeMaterial;
+    public float rangeYOffset = 0.05f;
+    GameObject rangeGO;
+    Renderer rangeRend;
+
     void Awake()
     {
         refreshInterval = 1f / data.attackSpeed;
@@ -46,6 +53,7 @@ public class CrystalUnit : MonoBehaviour, IPointerClickHandler
         {
             uInitPos = UpgradeIcon.transform.position;
             uInitRot = UpgradeIcon.transform.rotation;
+            upgradeCostUI.text = data.upgradeCost.ToString();
             UpgradeIcon.gameObject.SetActive(false);
         }
 
@@ -57,9 +65,32 @@ public class CrystalUnit : MonoBehaviour, IPointerClickHandler
         {
             return;
         }
+        CreateRangeSphere();
         loop = StartCoroutine(ScanLoop());
     }
 
+    void CreateRangeSphere()
+    {
+        if (rangeGO != null || data.range <= 0f) return;
+
+    rangeGO = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+    rangeGO.name = "RangeSphere";
+    rangeGO.transform.SetParent(transform, false);
+
+    var col = rangeGO.GetComponent<Collider>();
+    if (col) Destroy(col);
+    rangeGO.layer = LayerMask.NameToLayer("Ignore Raycast");
+
+    rangeRend = rangeGO.GetComponent<Renderer>();
+    rangeRend.sharedMaterial = Instantiate(rangeMaterial);
+    rangeRend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+    rangeRend.receiveShadows = false;
+
+    rangeGO.transform.localPosition = new Vector3(0f, rangeYOffset, 0f);
+    float d = Mathf.Max(0.001f, data.range * 2f);
+    rangeGO.transform.localScale = new Vector3(d, d, d);
+
+    }
     void OnDisable()
     {
         if (loop != null) StopCoroutine(loop);

@@ -44,6 +44,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (!isWaveActive && currentWaveIndex < levelData.waves.Count)
         {
+            GameManager.Instance?.SetWaveActive(true);
             StartCoroutine(SpawnWave(levelData.waves[currentWaveIndex])); 
             isWaveActive = true;
             spawnButton.interactable = false; 
@@ -100,7 +101,7 @@ public class EnemySpawner : MonoBehaviour
         {
             isWaveActive = false;
             spawnButton.interactable = true;
-            
+            GameManager.Instance?.SetWaveActive(false);
             return true;
         }
         return false;

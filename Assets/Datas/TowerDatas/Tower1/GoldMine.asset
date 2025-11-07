@@ -10,20 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a6fd00ab30e19141a74070ece01046a, type: 3}
-  m_Name: TowerBallista-2
+  m_Name: GoldMine
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
-  damage: 1
-  towerName: Ballista-2
-  prefab: {fileID: 1578332204039898862, guid: c46b0a13517e96747bbaf5b7b3df0d03, type: 3}
+  damage: 0
+  towerName: GoldMine
+  prefab: {fileID: 2561095594320520099, guid: 3f0f58c38859fda49849d14813b46701, type: 3}
   ghostPrefab: {fileID: 0}
-  nextUpgrade: {fileID: 6826389655202742869, guid: 229f2aeff38f58a41acf0f598d2abad8, type: 3}
-  upgradeCost: 100
+  nextUpgrade: {fileID: 0}
+  upgradeCost: 0
   cost: 0
-  yOffset: 0
+  yOffset: 0.15
   footprintRadius: 0.4
-  range: 2
-  attackSpeed: 2
-  upgradePopups:
-  - +1 range
-  - +1 dmg
-  textPrefab: {fileID: 5374746445897705322, guid: 4c476fbbe3e65f045b28e4b8e652ede7, type: 3}
+  range: 0
+  attackSpeed: 0

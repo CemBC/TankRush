@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-
+    private bool IsWaveActive;
     public List<GameObject> unitButtons; 
     public RectTransform envanterBar;
     public RectTransform whiteArrow;
@@ -193,7 +193,7 @@ public class GameManager : MonoBehaviour
             isHidden = true;
         }
     }
-    
+
     private void ApplyUnitAvailability()
     {
         if (unitButtons == null || unitButtons.Count == 0)
@@ -205,5 +205,15 @@ public class GameManager : MonoBehaviour
             bool isActive = i < currentLevel.unitAvailability.Count ? currentLevel.unitAvailability[i] : false;
             unitButtons[i].SetActive(isActive);
         }
+    }
+
+    public void SetWaveActive(bool active)
+    {
+        IsWaveActive = active;
+    }
+    
+    public bool getWaveInfo()
+    {
+        return IsWaveActive;
     }
 }

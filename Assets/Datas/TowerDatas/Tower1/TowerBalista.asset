@@ -23,3 +23,5 @@ MonoBehaviour:
   footprintRadius: 0.4
   range: 1
   attackSpeed: 2
+  upgradePopups: []
+  textPrefab: {fileID: 0}

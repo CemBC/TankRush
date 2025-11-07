@@ -422,6 +422,7 @@ MonoBehaviour:
   XIcon: {fileID: 1458343001387056419}
   UpgradeIcon: {fileID: 2018074780507585799}
   data: {fileID: 11400000, guid: 51b8cc29b4391ef49980457aebafea3e, type: 2}
+  attackSpeed: 0
   projectilePrefab: {fileID: 2985287228651492725, guid: 070cec14db49b0544b164f9df1f94887, type: 3}
   projectileSpeed: 30
   projectileLifeTime: 2
@@ -430,6 +431,8 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 512
+  rangeMaterial: {fileID: 2100000, guid: 5a564674842aa8f4ab0757900b2a87e6, type: 2}
+  rangeYOffset: 0.02
 --- !u!65 &2397970370486002855
 BoxCollider:
   m_ObjectHideFlags: 0
