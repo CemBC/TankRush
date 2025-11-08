@@ -16,23 +16,30 @@ public class MapGenerator : MonoBehaviour
     Dictionary<string, TokenData> terrainMap;
     Dictionary<string, TokenData> decorMap;
 
+    void Awake()
+    {
+        level = LevelRuntimePasser.Current;
+    }
     public void Build()
     {
-        if (!level || !mapRoot){
+        if (!level || !mapRoot)
+        {
             Debug.LogError("Missing Data");
             return;
         }
-        if (level.terrainRows == null || level.terrainRows.Length == 0){
+        if (level.terrainRows == null || level.terrainRows.Length == 0)
+        {
             Debug.LogError("Empty Data");
             return;
         }
 
-        for (int i = mapRoot.childCount - 1; i >= 0; i--){
+        for (int i = mapRoot.childCount - 1; i >= 0; i--)
+        {
             DestroyImmediate(mapRoot.GetChild(i).gameObject);
         }
-        
+
         terrainMap = BuildMap(terrainTokens);
-        decorMap   = BuildMap(decorTokens);
+        decorMap = BuildMap(decorTokens);
 
         int height = level.terrainRows.Length;
         int width = CountCells(level.terrainRows[0]);
@@ -40,7 +47,7 @@ public class MapGenerator : MonoBehaviour
         {
             level.gridSize = new Vector2Int(width, height);
         }
-        
+
         for (int y = 0; y < height; y++)
         {
             var terrainCells = SplitRow(level.terrainRows[y]);
@@ -66,7 +73,7 @@ public class MapGenerator : MonoBehaviour
                     if (decorTokenString != "." && decorMap.TryGetValue(decorTokenString, out var decorToken) && decorToken.prefab)
                     {
                         var decorGameObject = Instantiate(decorToken.prefab, basePosition + Vector3.up * decorYOffset, Quaternion.identity, mapRoot);
-                        decorToken.ApplyTo(decorGameObject); 
+                        decorToken.ApplyTo(decorGameObject);
                     }
                 }
             }

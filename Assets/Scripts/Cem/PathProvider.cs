@@ -19,7 +19,7 @@ public class PathProvider : MonoBehaviour
             Destroy(Instance.gameObject);
         }
         Instance = this;
-
+        levelData = LevelRuntimePasser.Current;
         BuildFromLevelData();  
     }
 

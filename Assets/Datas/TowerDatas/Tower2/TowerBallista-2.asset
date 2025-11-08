@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6fd00ab30e19141a74070ece01046a, type: 3}
+  m_Name: TowerBallista-2
+  m_EditorClassIdentifier: Assembly-CSharp::TowerData
+  damage: 1
+  towerName: Ballista-2
+  prefab: {fileID: 1578332204039898862, guid: c46b0a13517e96747bbaf5b7b3df0d03, type: 3}
+  ghostPrefab: {fileID: 0}
+  nextUpgrade: {fileID: 6826389655202742869, guid: 229f2aeff38f58a41acf0f598d2abad8, type: 3}
+  upgradeCost: 100
+  cost: 0
+  yOffset: 0
+  footprintRadius: 0.4
+  range: 2
+  attackSpeed: 2
+  upgradePopups:
+  - +1 range
+  - +1 dmg
+  textPrefab: {fileID: 5374746445897705322, guid: 4c476fbbe3e65f045b28e4b8e652ede7, type: 3}

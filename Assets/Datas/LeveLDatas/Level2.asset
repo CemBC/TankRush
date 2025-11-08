@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d34039f64388b47439fa6df5d3ceebd7, type: 3}
+  m_Name: Level2
+  m_EditorClassIdentifier: Assembly-CSharp::LevelData
+  levelHealth: 110
+  levelStartupMoney: 800
+  maxUnits: 6
+  levelName: Level2
+  gridSize: {x: 9, y: 5}
+  terrainRows:
+  - G G G G P G G G G
+  - G G G G P G G G G
+  - VP VP VP VP R G G G G
+  - G G G G G G G G G
+  - G G G G G G G G G
+  decorRows:
+  - 'T T T S  . . . . '
+  - 'T T T S  . . . . '
+  waypointPositions:
+  - {x: 4.024, y: 0.266, z: 4.71}
+  - {x: 4.024, y: 0.266, z: 4.194}
+  - {x: 4.024, y: 0.266, z: 2.948}
+  - {x: 4.024, y: 0.266, z: 2.513}
+  - {x: 3.963, y: 0.266, z: 2.23}
+  - {x: 3.749, y: 0.266, z: 1.978}
+  - {x: 3.199, y: 0.266, z: 1.978}
+  - {x: 0.096, y: 0.266, z: 1.978}
+  - {x: -0.69, y: 0.266, z: 1.978}
+  waves:
+  - waveName: Wave 1
+    spawnInterval: 3
+    enemyTokens:
+    - W
+    - C
+    - D
+    - M
+    - S
+    - T
+    - T
+  unitAvailability: 01010101

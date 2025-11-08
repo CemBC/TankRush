@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
   levelHealth: 100
-  levelStartupMoney: 700
+  levelStartupMoney: 100000
   maxUnits: 5
   levelName: Level1
   gridSize: {x: 9, y: 5}
@@ -26,6 +26,7 @@ MonoBehaviour:
   decorRows:
   - 'T T T S  . . . . '
   waypointPositions:
+  - {x: 4.024, y: 0.266, z: 4.71}
   - {x: 4.024, y: 0.266, z: 4.194}
   - {x: 4.024, y: 0.266, z: 2.948}
   - {x: 4.024, y: 0.266, z: 2.513}
@@ -44,3 +45,4 @@ MonoBehaviour:
     - M
     - S
     - T
+  unitAvailability: 010101010101

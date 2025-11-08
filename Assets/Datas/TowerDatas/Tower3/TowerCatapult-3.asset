@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6fd00ab30e19141a74070ece01046a, type: 3}
+  m_Name: TowerCatapult-3
+  m_EditorClassIdentifier: Assembly-CSharp::TowerData
+  damage: 10
+  towerName: Catapult-3
+  prefab: {fileID: 2262228622975888750, guid: 1ae6ad0f45cd9e748aa737e33d357f45, type: 3}
+  ghostPrefab: {fileID: 0}
+  nextUpgrade: {fileID: 3084574009945879272, guid: e077adf327a69c3448f8818f757f6e72, type: 3}
+  upgradeCost: 100
+  cost: 0
+  yOffset: 0
+  footprintRadius: 0.4
+  range: 2.5
+  attackSpeed: 0.5

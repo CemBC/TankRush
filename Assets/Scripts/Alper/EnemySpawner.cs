@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UI; 
 using System.Collections;
 using System.Collections.Generic;
 
@@ -7,23 +7,19 @@ public class EnemySpawner : MonoBehaviour
 {
     [Header("Level Settings")]
     public LevelData levelData;
-    public Transform spawnPoint;
 
     [Header("Enemy Token Data")]
     public List<TokenData> tokenDataList = new List<TokenData>();
 
     private Dictionary<string, TokenData> tokenDictionary;
     private Transform[] waypoints;
-    public Button spawnButton;
-    private bool isWaveActive = false;
-    private int currentWaveIndex = 0;
-
-    [Header("Enemy Settings")]
-    [Tooltip("Tüm düşmanlar için sabit hız değeri (kimse kimseyi geçmez).")]
-    public float globalEnemySpeed = 1.5f; // 👈 Buradan ayarlayabilirsin
+    public Button spawnButton; 
+    private bool isWaveActive = false; 
+    private int currentWaveIndex = 0; 
 
     void Awake()
     {
+        levelData = LevelRuntimePasser.Current;
         tokenDictionary = new Dictionary<string, TokenData>();
         foreach (var tokenData in tokenDataList)
         {
@@ -40,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
         if (spawnButton != null)
         {
             spawnButton.onClick.AddListener(OnSpawnButtonClicked);
-            spawnButton.interactable = true;
+            spawnButton.interactable = true; 
         }
     }
 
@@ -48,9 +44,10 @@ public class EnemySpawner : MonoBehaviour
     {
         if (!isWaveActive && currentWaveIndex < levelData.waves.Count)
         {
-            StartCoroutine(SpawnWave(levelData.waves[currentWaveIndex]));
+            GameManager.Instance?.SetWaveActive(true);
+            StartCoroutine(SpawnWave(levelData.waves[currentWaveIndex])); 
             isWaveActive = true;
-            spawnButton.interactable = false;
+            spawnButton.interactable = false; 
         }
     }
 
@@ -60,27 +57,34 @@ public class EnemySpawner : MonoBehaviour
         {
             string token = wave.enemyTokens[i];
             SpawnEnemyByToken(token);
-            yield return new WaitForSeconds(wave.spawnInterval); // sabit aralık
+            yield return new WaitForSeconds(wave.spawnInterval);
         }
-
         yield return new WaitUntil(CheckWaveCompletion);
-        currentWaveIndex++;
-
+        currentWaveIndex++; 
         if (currentWaveIndex >= levelData.waves.Count)
-        {
-            Debug.Log("🎉 Tüm wave'ler tamamlandı!");
-        }
-    }
+            {
+            Debug.Log("Waveler bitti");
 
+            }
+    }
     public void SpawnEnemyByToken(string token)
     {
         if (string.IsNullOrEmpty(token)) return;
-        if (!tokenDictionary.ContainsKey(token)) return;
-
+        if (!tokenDictionary.ContainsKey(token))
+        {
+            return;
+        }
         TokenData tokenData = tokenDictionary[token];
         GameObject prefab = tokenData.prefab;
-        Vector3 spawnPosition = spawnPoint ? spawnPoint.position : transform.position;
-
+       Vector3 spawnPosition;
+        if (levelData != null && levelData.waypointPositions != null && levelData.waypointPositions.Count > 0)
+        {
+            spawnPosition = levelData.waypointPositions[0];
+        }
+        else
+        {
+            spawnPosition = transform.position;
+        }
         GameObject enemy = Instantiate(prefab, spawnPosition, Quaternion.identity);
         tokenData.ApplyTo(enemy);
 
@@ -88,7 +92,6 @@ public class EnemySpawner : MonoBehaviour
         if (wp != null && PathProvider.Instance != null)
         {
             wp.wayPoints = new List<Transform>(PathProvider.Instance.GetWaypoints());
-            //wp.moveSpeed = globalEnemySpeed; // 👈 Her enemy aynı hızda
         }
     }
 
@@ -98,6 +101,7 @@ public class EnemySpawner : MonoBehaviour
         {
             isWaveActive = false;
             spawnButton.interactable = true;
+            GameManager.Instance?.SetWaveActive(false);
             return true;
         }
         return false;
