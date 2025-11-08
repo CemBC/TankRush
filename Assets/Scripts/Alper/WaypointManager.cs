@@ -15,11 +15,17 @@ public class WaypointManager : MonoBehaviour
     public int rewardMoney = 1; //default 1
     public int heathReduction = 1;
 
+    private Animator animator;
+    private SphereCollider sphereCollider;
+    private bool isDying = false;
+    public bool IsAlive => !IsDead && !isDying;
     Coroutine slowRoutine;
 
     void Awake()
     {
         currentSpeed = baseSpeed;
+        animator = GetComponent<Animator>();
+        sphereCollider = GetComponent<SphereCollider>();
     }
     void Start()
     {
@@ -82,10 +88,44 @@ public class WaypointManager : MonoBehaviour
 
     void Die()
     {
-        //Buraya para düşürme ve elme animasyonu eklenecek
+        if (isDying) return;
+        isDying = true;
+
+        currentSpeed = 0f;
+
+        if (sphereCollider != null)
+            sphereCollider.enabled = false;
+
         if (rewardMoney > 0 && GameManager.Instance != null)
-        {
             GameManager.Instance.AddMoney(rewardMoney);
+
+        if (animator != null)
+            animator.SetTrigger("Die");
+
+        StartCoroutine(WaitForDeathAnimAndDestroy("Die 0"));
+    }
+
+    IEnumerator WaitForDeathAnimAndDestroy(string deathStateName, int layer = 0)
+    {
+        if (animator == null)
+        {
+            Destroy(gameObject);
+            yield break;
+        }
+        float safety = 5f; //bekleme süresi max 5 saniye
+        while (!animator.GetCurrentAnimatorStateInfo(layer).IsName(deathStateName) && safety > 0f)
+        {
+            safety -= Time.deltaTime;
+            yield return null;
+        }
+        if (animator.GetCurrentAnimatorStateInfo(layer).IsName(deathStateName))
+        {
+            var info = animator.GetCurrentAnimatorStateInfo(layer);
+            while (info.normalizedTime < 0.99f)
+            {
+                yield return null;
+                info = animator.GetCurrentAnimatorStateInfo(layer);
+            }
         }
         Destroy(gameObject);
     }

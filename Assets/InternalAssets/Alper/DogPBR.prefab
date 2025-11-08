@@ -1417,9 +1417,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaypointManager
   wayPoints: []
-  moveSpeed: 0.75
+  baseSpeed: 2
   rotationSpeed: 3
-  maxHealth: 100
+  maxHealth: 10
   rewardMoney: 0
   heathReduction: 1
 --- !u!136 &8341836272255695073

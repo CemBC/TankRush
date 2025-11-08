@@ -217,8 +217,7 @@ public class TowerUnit : MonoBehaviour, IPointerClickHandler
 
     bool IsValidTarget(Transform t)
     {
-        if (!t) return false;
-        //buraya öldü ölmedi ya da mapten çıktı çıkmadı koyulacak ki ölene tekrardan vurmaya devam etmesin
+        if (!IsAliveEnemy(t)) return false;
         return (t.position - transform.position).sqrMagnitude <= rangeCollider.radius * rangeCollider.radius;
     }
 
@@ -232,6 +231,7 @@ public class TowerUnit : MonoBehaviour, IPointerClickHandler
         for (int i = 0; i < hits.Length; i++)
         {
             if (!hits[i]) continue;
+            if (!IsAliveEnemy(hits[i].transform)) continue;
             float distance = (hits[i].transform.position - towerPosition).sqrMagnitude;
             if (distance < best)
             {
@@ -370,4 +370,10 @@ public class TowerUnit : MonoBehaviour, IPointerClickHandler
         shootCoroutine = StartCoroutine(ShootLoop());
     }
 
+    bool IsAliveEnemy(Transform t)
+    {
+        if (!t) return false;
+        var wp = t.GetComponent<WaypointManager>();
+        return wp != null && wp.IsAlive;
+    }
 }
