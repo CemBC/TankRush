@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 public class WaypointManager : MonoBehaviour
 {
+    public TMP_Text floatingTextPrefab;
     public List<Transform> wayPoints = new List<Transform>();
     private int targetPoint = 1;
     public float baseSpeed = 2f;
@@ -97,8 +100,14 @@ public class WaypointManager : MonoBehaviour
             sphereCollider.enabled = false;
 
         if (rewardMoney > 0 && GameManager.Instance != null)
+        {
             GameManager.Instance.AddMoney(rewardMoney);
 
+            if(floatingTextPrefab != null)
+            {
+                SpawnFloatingRewardText(string.Format("+{0}" , rewardMoney));
+            }
+        }
         if (animator != null)
             animator.SetTrigger("Die");
 
@@ -144,4 +153,23 @@ public class WaypointManager : MonoBehaviour
         currentSpeed = baseSpeed;
         slowRoutine = null;
     }
+
+        void SpawnFloatingRewardText(string msg)
+    {
+        TMP_Text txt = Instantiate(floatingTextPrefab);
+        txt.text = msg;
+
+        Transform tr = txt.transform;
+        tr.position = (transform? transform.position : transform.position) + new Vector3(0,1f,0);
+        Vector3 targetPosition = tr.position + new Vector3(0f, 0f, 0.5f);
+
+        tr.DOMove(targetPosition, 1.1f)
+          .SetEase(Ease.OutCubic)
+          .OnComplete(() =>
+          {
+              if (txt)
+                  Destroy(txt.gameObject);
+          });
+    }
+
 }
