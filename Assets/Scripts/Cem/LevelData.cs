@@ -8,6 +8,7 @@ public class LevelData : ScriptableObject
     public int levelStartupMoney;
     public int maxUnits;
     public string levelName;
+    public int levelNumber;
     public Vector2Int gridSize;
 
     [Header("Terrain Layer")]
@@ -20,4 +21,6 @@ public class LevelData : ScriptableObject
     public List<WaveData> waves = new List<WaveData>();
 
     public List<bool> unitAvailability = new List<bool>();
+
+    public LevelData nextLevel;
 }

@@ -1,10 +1,18 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject blackBackgroundObject;
+    public GameObject nextLevelButton;
+    private Image blackBackground;
+    public GameObject LosePopup;
+    public GameObject WinPopup;
     public static GameManager Instance { get; private set; }
     private bool IsWaveActive;
     public List<GameObject> unitButtons; 
@@ -28,9 +36,13 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TMP_Text currentUnitText;
 
+    const string LastUnlockedKey = "LastUnlockedLevelNumber";
+
 
     void Awake()
     {
+        Time.timeScale = 1f;  //Oyun bitince sıfır yapmıştık direkt burada sağlamayı 1 yaparak yeni seviyede sorun çıkmasın
+        blackBackground = blackBackgroundObject.GetComponent<Image>();
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -38,7 +50,6 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         currentLevel = LevelRuntimePasser.Current;
-        DontDestroyOnLoad(gameObject);
     }
     void Start()
     {
@@ -65,7 +76,7 @@ public class GameManager : MonoBehaviour
         }
 
         ApplyUnitAvailability();
-        
+        UpdateHealthUI();
         UpdateMoneyUI();
         Debug.Log("başlangıç paran:" + money);
         Debug.Log("başlangıç canın:" + health);
@@ -164,7 +175,16 @@ public class GameManager : MonoBehaviour
     {
         if (amount <= 0) return;
         health -= amount;
-        if (health < 0) health = 0;
+        if (health <= 0)
+        {
+            health = 0;
+            Time.timeScale = 0f;
+            blackBackgroundObject.SetActive(true);
+            LosePopup.SetActive(true);
+            blackBackground.DOFade(0.8f, 0.3f).SetEase(Ease.Linear).SetUpdate(true);
+            LosePopup.transform.DOScale(1f, 0.3f).SetEase(Ease.OutBack).SetUpdate(true);
+            LosePopup.SetActive(true);
+        }
         UpdateHealthUI();
     }
 
@@ -173,6 +193,8 @@ public class GameManager : MonoBehaviour
         if (healthText != null)
             healthText.text = health.ToString();
     }
+
+    public int getHealth() {return health;}
     #endregion
 
     public void ToggleEnvanterBar()
@@ -215,5 +237,70 @@ public class GameManager : MonoBehaviour
     public bool getWaveInfo()
     {
         return IsWaveActive;
+    }
+
+    public void onWin()
+    {
+        UnlockNextLevel();
+        Time.timeScale = 0f;
+
+        blackBackgroundObject.SetActive(true);
+        WinPopup.SetActive(true);
+        blackBackground.DOFade(0.8f, 0.3f).SetEase(Ease.Linear).SetUpdate(true);
+        WinPopup.transform.DOScale(1f, 0.3f).SetEase(Ease.OutBack).SetUpdate(true);
+
+        LevelData current = LevelRuntimePasser.Current;
+        if(current.nextLevel == null)
+        {
+            nextLevelButton.SetActive(false);
+        }
+    }
+
+    void UnlockNextLevel()
+    {
+        LevelData current = LevelRuntimePasser.Current;
+        if (current == null) return;
+        if (current.nextLevel == null) return;
+        int lastUnlocked = PlayerPrefs.GetInt(LastUnlockedKey, 1);
+        int nextNumber   = current.nextLevel.levelNumber;
+        if (nextNumber > lastUnlocked)
+        {
+            PlayerPrefs.SetInt(LastUnlockedKey, nextNumber);
+            PlayerPrefs.Save();
+        }
+    }
+
+    public void onRetryButtonClicked()
+    {
+        DOTween.KillAll();
+        SceneManager.LoadScene("GameScene");
+    }
+
+    public void onMainMenuButtonClicked()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void OnNextLevelButtonClicked()
+    {
+        DOTween.KillAll();
+        LevelData current = LevelRuntimePasser.Current;
+        if (current == null)
+        {
+            SceneManager.LoadScene("MainMenu");
+            return;
+        }
+        int lastUnlocked = PlayerPrefs.GetInt(LastUnlockedKey, 1);
+        if (current.nextLevel != null)
+        {
+            int nextNumber = current.nextLevel.levelNumber;
+            if (nextNumber > lastUnlocked)
+            {
+                PlayerPrefs.SetInt(LastUnlockedKey, nextNumber);
+                PlayerPrefs.Save();
+            }
+            LevelRuntimePasser.Current = current.nextLevel;
+            SceneManager.LoadScene("GameScene");
+        }
     }
 }

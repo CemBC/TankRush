@@ -63,7 +63,10 @@ public class EnemySpawner : MonoBehaviour
         currentWaveIndex++; 
         if (currentWaveIndex >= levelData.waves.Count)
             {
-            Debug.Log("Waveler bitti");
+                if(GameManager.Instance?.getHealth() > 0)
+            {
+                GameManager.Instance?.onWin();
+            }
 
             }
     }
