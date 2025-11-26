@@ -19,7 +19,8 @@ public class LevelsMenu : MonoBehaviour
 
     void Awake()
     {
-
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
         levelButtons = buttonsParent.GetComponentsInChildren<Button>();
 
         SetupButtons();
