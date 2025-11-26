@@ -1,7 +1,8 @@
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -13,13 +14,18 @@ public class EnemySpawner : MonoBehaviour
 
     private Dictionary<string, TokenData> tokenDictionary;
     private Transform[] waypoints;
-    public Button spawnButton; 
-    private bool isWaveActive = false; 
-    private int currentWaveIndex = 0; 
 
+    public Button spawnButton;                    
+    public TextMeshProUGUI currentWaveText;     
+    public TextMeshProUGUI maxWaveText;          
+    public GameObject waveBarRoot;
+
+    private bool isWaveActive = false;
+    private int currentWaveIndex = 0;   
     void Awake()
     {
         levelData = LevelRuntimePasser.Current;
+
         tokenDictionary = new Dictionary<string, TokenData>();
         foreach (var tokenData in tokenDataList)
         {
@@ -36,8 +42,20 @@ public class EnemySpawner : MonoBehaviour
         if (spawnButton != null)
         {
             spawnButton.onClick.AddListener(OnSpawnButtonClicked);
-            spawnButton.interactable = true; 
+            spawnButton.interactable = true;
         }
+
+        if (levelData != null && maxWaveText != null)
+            maxWaveText.text = levelData.waves.Count.ToString();
+
+        UpdateCurrentWaveText();
+    }
+
+    private void UpdateCurrentWaveText()
+    {
+        if (currentWaveText == null || levelData == null) return;
+        int displayWave = Mathf.Clamp(currentWaveIndex + 1, 1, levelData.waves.Count);
+        currentWaveText.text = displayWave.ToString();
     }
 
     public void OnSpawnButtonClicked()
@@ -45,9 +63,14 @@ public class EnemySpawner : MonoBehaviour
         if (!isWaveActive && currentWaveIndex < levelData.waves.Count)
         {
             GameManager.Instance?.SetWaveActive(true);
-            StartCoroutine(SpawnWave(levelData.waves[currentWaveIndex])); 
+            UpdateCurrentWaveText();
+
+            if (waveBarRoot != null)
+                waveBarRoot.SetActive(false);
+
+            StartCoroutine(SpawnWave(levelData.waves[currentWaveIndex]));
             isWaveActive = true;
-            spawnButton.interactable = false; 
+            spawnButton.interactable = false;
         }
     }
 
@@ -59,27 +82,37 @@ public class EnemySpawner : MonoBehaviour
             SpawnEnemyByToken(token);
             yield return new WaitForSeconds(wave.spawnInterval);
         }
+
         yield return new WaitUntil(CheckWaveCompletion);
-        currentWaveIndex++; 
+
+        currentWaveIndex++;
+
         if (currentWaveIndex >= levelData.waves.Count)
-            {
-                if(GameManager.Instance?.getHealth() > 0)
+        {
+            spawnButton.interactable = false;
+            if (waveBarRoot != null)
+                waveBarRoot.SetActive(false);
+
+            if (GameManager.Instance?.getHealth() > 0)
             {
                 GameManager.Instance?.onWin();
             }
-
-            }
+        }
+        else
+        {
+            UpdateCurrentWaveText();
+        }
     }
+
     public void SpawnEnemyByToken(string token)
     {
         if (string.IsNullOrEmpty(token)) return;
-        if (!tokenDictionary.ContainsKey(token))
-        {
-            return;
-        }
+        if (!tokenDictionary.ContainsKey(token)) return;
+
         TokenData tokenData = tokenDictionary[token];
         GameObject prefab = tokenData.prefab;
-       Vector3 spawnPosition;
+
+        Vector3 spawnPosition;
         if (levelData != null && levelData.waypointPositions != null && levelData.waypointPositions.Count > 0)
         {
             spawnPosition = levelData.waypointPositions[0];
@@ -88,6 +121,7 @@ public class EnemySpawner : MonoBehaviour
         {
             spawnPosition = transform.position;
         }
+
         GameObject enemy = Instantiate(prefab, spawnPosition, Quaternion.identity);
         tokenData.ApplyTo(enemy);
 
@@ -103,8 +137,14 @@ public class EnemySpawner : MonoBehaviour
         if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
             isWaveActive = false;
-            spawnButton.interactable = true;
             GameManager.Instance?.SetWaveActive(false);
+            if (currentWaveIndex < levelData.waves.Count)
+            {
+                spawnButton.interactable = true;
+                if (waveBarRoot != null)
+                    waveBarRoot.SetActive(true);
+            }
+
             return true;
         }
         return false;
