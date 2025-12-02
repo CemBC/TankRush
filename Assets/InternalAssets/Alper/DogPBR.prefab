@@ -1420,7 +1420,7 @@ MonoBehaviour:
   wayPoints: []
   baseSpeed: 2
   rotationSpeed: 3
-  maxHealth: 10
+  maxHealth: 100
   rewardMoney: 0
   heathReduction: 1
 --- !u!136 &8341836272255695073
