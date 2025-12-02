@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 824187794674860187}
   - component: {fileID: 935239177575416298}
-  m_Layer: 0
+  - component: {fileID: -2237111380168137779}
+  - component: {fileID: -9030815296477223783}
+  m_Layer: 9
   m_Name: Swarm08PA
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7890686326472323489}
@@ -56,6 +58,48 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-2237111380168137779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16829958793894433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a4253b8fd925e46a3a1db9bfbbac66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaypointManager
+  floatingTextPrefab: {fileID: 5374746445897705322, guid: df2be9ac0102b274ab2eabafce43a5f0, type: 3}
+  wayPoints: []
+  baseSpeed: 2
+  rotationSpeed: 10
+  maxHealth: 0
+  rewardMoney: 1
+  heathReduction: 1
+--- !u!136 &-9030815296477223783
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16829958793894433}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &366229167135885180
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,7 +109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4659450141987263971}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WingLeft01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +141,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5950618189461991613}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WingLeft02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2936058901403978092}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7028763998461668286}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AntennaLeft01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +238,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7943996568035615450}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AntennaLeft03 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +269,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6707971034796244089}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tail02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5411216330087106568}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AntennaLeft02 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +332,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4057972531496939640}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +365,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9068402579038784341}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AntennaLeft02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -353,7 +397,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7343671580923210145}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tail01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +429,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7890686326472323489}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8786526196064584725}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AntennaLeft07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -449,7 +493,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5463599077558344288}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AntennaLeft03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -480,7 +524,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 936357934781973383}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,7 +557,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6750226111092306305}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WingRight02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,7 +589,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6193117057673137929}
   - component: {fileID: 921007616236996589}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Swarm08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -651,7 +695,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5787669781428809995}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WingRight01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
