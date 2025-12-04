@@ -199,7 +199,7 @@ public class TowerUnit : MonoBehaviour, IPointerClickHandler
         while (true)
         {
             if (!IsValidTarget(currentTarget))
-                currentTarget = PickNearestInRange();
+                currentTarget = PickBestInRange();
             if (IsValidTarget(currentTarget))
             {
                 Vector3 direction = currentTarget.position - transform.position;
@@ -221,25 +221,32 @@ public class TowerUnit : MonoBehaviour, IPointerClickHandler
         return (t.position - transform.position).sqrMagnitude <= rangeCollider.radius * rangeCollider.radius;
     }
 
-    Transform PickNearestInRange()
+    Transform PickBestInRange()
     {
+        if (rangeCollider == null) return null;
         Collider[] hits = Physics.OverlapSphere(transform.position, rangeCollider.radius, enemyMask);
-        float best = float.MaxValue;
-        Transform final = null;
-        Vector3 towerPosition = transform.position;
+        if (hits == null || hits.Length == 0) return null;
 
+        Transform bestTarget = null;
+        float bestPriority = float.NegativeInfinity;  
+        float bestDistance = float.MaxValue;
+        Vector3 towerPos = transform.position;
         for (int i = 0; i < hits.Length; i++)
         {
-            if (!hits[i]) continue;
-            if (!IsAliveEnemy(hits[i].transform)) continue;
-            float distance = (hits[i].transform.position - towerPosition).sqrMagnitude;
-            if (distance < best)
+            var col = hits[i];
+            if (!col) continue;
+            var wp = col.GetComponent<WaypointManager>();
+            if (wp == null || !wp.IsAlive) continue;
+            float prio = wp.priority;
+            float dist = (col.transform.position - towerPos).sqrMagnitude;
+            if (prio > bestPriority || (Mathf.Approximately(prio, bestPriority) && dist < bestDistance))
             {
-                best = distance;
-                final = hits[i].transform;
+                bestPriority = prio;
+                bestDistance = dist;
+                bestTarget = col.transform;
             }
         }
-        return final;
+        return bestTarget;
     }
 
     void Fire(Vector3 direction)

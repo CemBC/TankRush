@@ -9,6 +9,7 @@ public class WaypointManager : MonoBehaviour
     public TMP_Text floatingTextPrefab;
     public List<Transform> wayPoints = new List<Transform>();
     private int targetPoint = 1;
+    public float priority = 1f;
     public float baseSpeed = 2f;
     private float currentSpeed;
     public float rotationSpeed = 10f;
