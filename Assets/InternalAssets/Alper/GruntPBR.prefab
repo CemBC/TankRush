@@ -325,9 +325,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaypointManager
   floatingTextPrefab: {fileID: 5374746445897705322, guid: df2be9ac0102b274ab2eabafce43a5f0, type: 3}
   wayPoints: []
+  priority: 1
   baseSpeed: 2
   rotationSpeed: 10
-  maxHealth: 0
+  maxHealth: 100
   rewardMoney: 1
   heathReduction: 1
 --- !u!136 &14030580087318106
@@ -349,10 +350,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.82810885
+  m_Height: 1.992961
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.9800082, z: 0.13815112}
 --- !u!1 &3312486801664689943
 GameObject:
   m_ObjectHideFlags: 0

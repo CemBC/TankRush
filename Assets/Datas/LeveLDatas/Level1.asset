@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34039f64388b47439fa6df5d3ceebd7, type: 3}
   m_Name: Level1
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
-  levelHealth: 1
+  levelHealth: 100
   levelStartupMoney: 500
   maxUnits: 5
   levelName: Level1
@@ -39,23 +39,24 @@ MonoBehaviour:
   - {x: -0.69, y: 0.266, z: 1.978}
   waves:
   - waveName: Wave 1
-    spawnInterval: 1
+    spawnInterval: 3
     enemyTokens:
-    - S
-    - W
-    - T
-    - D
+    - E
+    - E
+    - E
+    - B
     - M
     - C
   - waveName: Wave 2
-    spawnInterval: 1
+    spawnInterval: 6
     enemyTokens:
-    - S
-    - S
-    - S
-    - S
-    - S
-    - S
+    - G
+    - H
+    - F
+    - B
+    - X
+    - Q
+    - E
   - waveName: Wave 3
     spawnInterval: 1
     enemyTokens:
