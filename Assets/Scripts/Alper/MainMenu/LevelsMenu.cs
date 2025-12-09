@@ -26,21 +26,26 @@ public class LevelsMenu : MonoBehaviour
     }
 
     void SetupButtons()
+{
+    int lastUnlocked = PlayerPrefs.GetInt(LastUnlockedKey, 1);
+
+    for (int i = 0; i < levels.Length && i < levelButtons.Length; i++)
     {
-        int lastUnlocked = PlayerPrefs.GetInt(LastUnlockedKey, 1);
+        LevelData data = levels[i];
+        Button btn = levelButtons[i];
 
-        for (int i = 0; i < levels.Length && i < levelButtons.Length; i++)
-        {
-            LevelData data = levels[i];
-            Button btn = levelButtons[i];
+        if (data == null || btn == null)
+            continue;
 
-            if (data == null || btn == null)
-                continue;
+        bool unlocked = data.levelNumber <= lastUnlocked;
+        btn.interactable = unlocked;
 
-            bool unlocked = data.levelNumber <= lastUnlocked;
-            btn.interactable = unlocked;
-        }
+        // En kritik kısım
+        btn.onClick.RemoveAllListeners();
+        btn.onClick.AddListener(() => LoadLevel(data));
     }
+}
+
 
     public void OpenLevelsMenu()
     {

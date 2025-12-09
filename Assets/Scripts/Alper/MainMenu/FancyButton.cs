@@ -4,39 +4,64 @@ using UnityEngine.UI;
 
 public class FancyButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
-    public AudioSource audioSource;
+    public AudioSource uiAudioSource; 
     public AudioClip hoverSound;
     public AudioClip clickSound;
-    public Image glowOverlay; // parlama efekti (opsiyonel)
+    public Image glowOverlay;
     
     private Image image;
     private Vector3 originalScale;
     private Color originalColor;
 
     void Start()
+{
+    image = GetComponent<Image>();
+    originalScale = transform.localScale;
+    originalColor = image.color;
+
+    if (glowOverlay != null)
+        glowOverlay.enabled = false;
+
+    if (uiAudioSource == null)
     {
-        image = GetComponent<Image>();
-        originalScale = transform.localScale;
-        originalColor = image.color;
-        
-        if (glowOverlay != null)
-            glowOverlay.enabled = false;
+        AudioSource[] allSources = FindObjectsOfType<AudioSource>(true);
+
+        foreach (AudioSource src in allSources)
+        {
+            if (src.gameObject.name.Contains("UI") ||
+                src.gameObject.name.Contains("ui") ||
+                src.gameObject.name.Contains("Ui") ||
+                src.gameObject.name.Contains("uI"))
+            {
+                uiAudioSource = src;
+                break;
+            }
+        }
+
+        if (uiAudioSource == null)
+            Debug.LogWarning("FancyButton: UI ile ilgili bir AudioSource bulunamadı!");
     }
+}
+
+
 
     public void OnPointerEnter(PointerEventData e)
     {
         transform.localScale = originalScale * 1.05f;
-        image.color = new Color(1f, 0.95f, 0.8f, 1f); // hafif sarı parıltı
+        image.color = new Color(1f, 0.95f, 0.8f, 1f);
+
         if (glowOverlay != null)
             glowOverlay.enabled = true;
-        if (hoverSound != null && audioSource != null)
-            audioSource.PlayOneShot(hoverSound);
+
+        if (hoverSound != null && uiAudioSource != null)
+            uiAudioSource.PlayOneShot(hoverSound);
     }
 
     public void OnPointerExit(PointerEventData e)
     {
         transform.localScale = originalScale;
         image.color = originalColor;
+
         if (glowOverlay != null)
             glowOverlay.enabled = false;
     }
@@ -44,8 +69,9 @@ public class FancyButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerDown(PointerEventData e)
     {
         transform.localScale = originalScale * 0.95f;
-        if (clickSound != null && audioSource != null)
-            audioSource.PlayOneShot(clickSound);
+
+        if (clickSound != null && uiAudioSource != null)
+            uiAudioSource.PlayOneShot(clickSound);
     }
 
     public void OnPointerUp(PointerEventData e)
