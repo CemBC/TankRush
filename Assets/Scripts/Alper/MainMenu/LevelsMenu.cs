@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using MaskTransitions;
+using UnityEditorInternal;
 public class LevelsMenu : MonoBehaviour
 {
     [Header("Panel Reference")]
@@ -54,7 +55,7 @@ public class LevelsMenu : MonoBehaviour
     public void LoadLevel(LevelData data)
     {
         LevelRuntimePasser.Current = data;
-        SceneManager.LoadScene("GameScene");
+        TransitionManager.Instance.LoadLevel("GameScene");
     }
 
     public void OnPlayButtonClicked()

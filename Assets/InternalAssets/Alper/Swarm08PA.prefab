@@ -73,7 +73,7 @@ MonoBehaviour:
   floatingTextPrefab: {fileID: 5374746445897705322, guid: df2be9ac0102b274ab2eabafce43a5f0, type: 3}
   wayPoints: []
   priority: 1
-  baseSpeed: 2
+  baseSpeed: 1
   rotationSpeed: 10
   maxHealth: 100
   rewardMoney: 1

@@ -693,6 +693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaypointManager
   floatingTextPrefab: {fileID: 5374746445897705322, guid: df2be9ac0102b274ab2eabafce43a5f0, type: 3}
   wayPoints: []
+  priority: 3
   baseSpeed: 1
   rotationSpeed: 5
   maxHealth: 100

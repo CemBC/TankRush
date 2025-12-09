@@ -39,13 +39,13 @@ MonoBehaviour:
   - {x: -0.69, y: 0.266, z: 1.978}
   waves:
   - waveName: Wave 1
-    spawnInterval: 3
+    spawnInterval: 1
     enemyTokens:
     - E
+    - C
+    - H
     - E
-    - E
-    - B
-    - M
+    - X
     - C
   - waveName: Wave 2
     spawnInterval: 6

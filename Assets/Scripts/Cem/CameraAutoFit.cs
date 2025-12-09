@@ -29,7 +29,7 @@ public class CameraAutoFit : MonoBehaviour
         cam.orthographic = true;
         cam.transform.position = new Vector3(center.x, 10f, center.z);
         cam.transform.rotation = Quaternion.Euler(90f, 0f, 0f);
-        float halfBottomTile = tileSize * 0.5f;
+        float halfBottomTile = tileSize * 0.2f;
         float sizeByHeight = (worldHeight * 0.5f) + padding + halfBottomTile;
         float sizeByWidth  = (worldWidth * 0.5f / cam.aspect) + padding;
 
