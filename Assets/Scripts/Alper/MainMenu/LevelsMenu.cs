@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using MaskTransitions;
-using UnityEditorInternal;
+
 public class LevelsMenu : MonoBehaviour
 {
     [Header("Panel Reference")]
@@ -21,7 +21,6 @@ public class LevelsMenu : MonoBehaviour
     void Awake()
     {
         levelButtons = buttonsParent.GetComponentsInChildren<Button>();
-
         SetupButtons();
     }
 
@@ -39,6 +38,18 @@ public class LevelsMenu : MonoBehaviour
 
             bool unlocked = data.levelNumber <= lastUnlocked;
             btn.interactable = unlocked;
+
+            // OnClick'leri sıfırla ve yeniden ekle
+            btn.onClick.RemoveAllListeners();
+
+            if (unlocked)
+            {
+                LevelData captured = data;
+                btn.onClick.AddListener(() =>
+                {
+                    LoadLevel(captured);
+                });
+            }
         }
     }
 
@@ -54,14 +65,17 @@ public class LevelsMenu : MonoBehaviour
 
     public void LoadLevel(LevelData data)
     {
+        Debug.Log("LoadLevel: " + data.levelNumber);
         LevelRuntimePasser.Current = data;
-        TransitionManager.Instance.LoadLevel("GameScene");
+        SceneManager.LoadScene("GameScene");
     }
+
 
     public void OnPlayButtonClicked()
     {
         int lastUnlocked = PlayerPrefs.GetInt(LastUnlockedKey, 1);
         LevelData target = null;
+
         foreach (var data in levels)
         {
             if (data != null && data.levelNumber == lastUnlocked)
@@ -84,6 +98,10 @@ public class LevelsMenu : MonoBehaviour
         if (target != null)
         {
             LoadLevel(target);
+        }
+        else
+        {
+            Debug.LogError("Hiç level bulunamadı, Levels arrayini kontrol et.");
         }
     }
 }
