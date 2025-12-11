@@ -313,9 +313,9 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: e80c503ffa0e7d543981ae760332e0f0, type: 2}
   attackSpeed: 0
   projectilePrefab: {fileID: 2985287228651492725, guid: 070cec14db49b0544b164f9df1f94887, type: 3}
-  projectileSpeed: 30
-  projectileLifeTime: 2
-  projectileRadius: 0.12
+  projectileSpeed: 20
+  projectileLifeTime: 2.5
+  projectileRadius: 1
   projectilePierce: 1
   enemyMask:
     serializedVersion: 2

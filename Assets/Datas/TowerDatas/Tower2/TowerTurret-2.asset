@@ -12,14 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6fd00ab30e19141a74070ece01046a, type: 3}
   m_Name: TowerTurret-2
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
-  damage: 5
+  damage: 9
   towerName: Turret-2
   prefab: {fileID: 1924350536162542950, guid: 8042d44176329fc4b9e2a37f5f2de96a, type: 3}
   ghostPrefab: {fileID: 0}
   nextUpgrade: {fileID: 2524202701577436697, guid: 5735d8f7bf0318e44a705dbaf1708a8f, type: 3}
-  upgradeCost: 100
+  upgradeCost: 120
   cost: 0
   yOffset: 0
   footprintRadius: 0.4
-  range: 2
-  attackSpeed: 3
+  range: 2.7
+  attackSpeed: 2.4
+  upgradePopups: []
+  textPrefab: {fileID: 0}
+  popupOffset: {x: 0, y: 1, z: 0}
+  popupRiseDistance: 1
+  popupLifeTime: 0.5
+  popupInterval: 0.12

@@ -356,10 +356,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CrystalUnit
   upgradeCostUI: {fileID: 3953799921860321913}
-  enemySlowMultiplier: 0.1
-  enemySlowDuration: 1
-  towerAtkSpeedMultiplier: 1.5
-  towerBuffDuration: 1
+  enemySlowMultiplier: 0.6
+  enemySlowDuration: 1.2
+  towerAtkSpeedMultiplier: 1.3
+  towerBuffDuration: 2.5
   XIcon: {fileID: 6202545476723567906}
   UpgradeIcon: {fileID: 977302944780104038}
   refreshInterval: 2

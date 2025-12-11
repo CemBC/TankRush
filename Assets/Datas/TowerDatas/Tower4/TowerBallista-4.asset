@@ -12,14 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6fd00ab30e19141a74070ece01046a, type: 3}
   m_Name: TowerBallista-4
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
-  damage: 1
+  damage: 18
   towerName: Ballista-3
   prefab: {fileID: 7926990897956358030, guid: fd030347c3d45114db1b208707521ecd, type: 3}
   ghostPrefab: {fileID: 0}
   nextUpgrade: {fileID: 2519228799371135158, guid: 3dca1e80739f0734299b4e5db7cb4601, type: 3}
-  upgradeCost: 100
+  upgradeCost: 130
   cost: 0
   yOffset: 0
   footprintRadius: 0.4
-  range: 3
-  attackSpeed: 3
+  range: 3.6
+  attackSpeed: 1.25
+  upgradePopups: []
+  textPrefab: {fileID: 0}
+  popupOffset: {x: 0, y: 1, z: 0}
+  popupRiseDistance: 1
+  popupLifeTime: 0.5
+  popupInterval: 0.12

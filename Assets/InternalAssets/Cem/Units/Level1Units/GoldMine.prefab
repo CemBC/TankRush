@@ -161,8 +161,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GoldMine
   XIcon: {fileID: 908409886769925587}
-  goldPerTick: 10
-  intervalSeconds: 2
+  goldPerTick: 15
+  intervalSeconds: 3
   floatingTextPrefab: {fileID: 5374746445897705322, guid: df2be9ac0102b274ab2eabafce43a5f0, type: 3}
   textSpawnPoint: {fileID: 8203283508451441092}
   worldOffset: {x: 0, y: 1, z: 0}

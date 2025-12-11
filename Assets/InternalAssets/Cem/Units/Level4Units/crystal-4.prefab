@@ -199,10 +199,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e728fc9f4ad7d04abe0f0fc3c0cebbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CrystalUnit
-  enemySlowMultiplier: 0.1
-  enemySlowDuration: 1
+  upgradeCostUI: {fileID: 0}
+  enemySlowMultiplier: 0.5
+  enemySlowDuration: 1.6
   towerAtkSpeedMultiplier: 1.5
-  towerBuffDuration: 1
+  towerBuffDuration: 3.5
   XIcon: {fileID: 8291460087163666820}
   UpgradeIcon: {fileID: 0}
   refreshInterval: 2

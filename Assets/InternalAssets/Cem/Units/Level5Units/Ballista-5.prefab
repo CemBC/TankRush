@@ -218,15 +218,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: defcc81b2bebfb14582b4941d28f753f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerUnit
+  upgradeCostUI: {fileID: 0}
   XIcon: {fileID: 8433565738322272993}
   UpgradeIcon: {fileID: 3439310406510052101}
   data: {fileID: 11400000, guid: 78392f893321690479cfa73084c99807, type: 2}
   attackSpeed: 0
   projectilePrefab: {fileID: 7752650047409449520, guid: 3aaf456b69a29ef44b44033346069dce, type: 3}
-  projectileSpeed: 30
+  projectileSpeed: 35
   projectileLifeTime: 2
   projectileRadius: 0.12
-  projectilePierce: 1
+  projectilePierce: 2
   enemyMask:
     serializedVersion: 2
     m_Bits: 512
