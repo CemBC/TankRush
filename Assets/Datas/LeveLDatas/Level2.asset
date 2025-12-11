@@ -24,9 +24,7 @@ MonoBehaviour:
   - VP VP VP VP R G G G G
   - G G G G G G G G G
   - G G G G G G G G G
-  decorRows:
-  - 'T T T S  . . . . '
-  - 'T T T S  . . . . '
+  decorRows: []
   waypointPositions:
   - {x: 4.024, y: 0.266, z: 4.71}
   - {x: 4.024, y: 0.266, z: 4.194}

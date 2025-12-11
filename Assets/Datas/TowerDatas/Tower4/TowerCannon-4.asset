@@ -23,8 +23,11 @@ MonoBehaviour:
   footprintRadius: 0.4
   range: 2.8
   attackSpeed: 1.25
-  upgradePopups: []
-  textPrefab: {fileID: 0}
+  upgradePopups:
+  - +6 dmg
+  - +0.2 Range
+  - +0.1 attack speed
+  textPrefab: {fileID: 5374746445897705322, guid: 4c476fbbe3e65f045b28e4b8e652ede7, type: 3}
   popupOffset: {x: 0, y: 1, z: 0}
   popupRiseDistance: 1
   popupLifeTime: 0.5
