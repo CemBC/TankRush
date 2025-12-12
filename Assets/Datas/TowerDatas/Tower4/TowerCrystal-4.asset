@@ -21,5 +21,12 @@ MonoBehaviour:
   cost: 0
   yOffset: 0
   footprintRadius: 0.4
-  range: 2
+  range: 3.2
   attackSpeed: 3
+  upgradePopups:
+  - +0.2 Buff
+  textPrefab: {fileID: 5374746445897705322, guid: 4c476fbbe3e65f045b28e4b8e652ede7, type: 3}
+  popupOffset: {x: 0, y: 1, z: 0}
+  popupRiseDistance: 1
+  popupLifeTime: 0.5
+  popupInterval: 0.12

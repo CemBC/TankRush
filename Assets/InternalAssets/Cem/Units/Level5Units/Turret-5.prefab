@@ -206,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 1787486746257740428}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.017, y: 1.5159998, z: -0.498}
+  m_LocalPosition: {x: 0.017, y: 5.67, z: -0.498}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -530,6 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: defcc81b2bebfb14582b4941d28f753f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerUnit
+  upgradeCostUI: {fileID: 0}
   XIcon: {fileID: 1787486746257740428}
   UpgradeIcon: {fileID: 167291758904179898}
   data: {fileID: 11400000, guid: a43ba0e6789ea514c97c55110019a2ba, type: 2}

@@ -12,41 +12,265 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34039f64388b47439fa6df5d3ceebd7, type: 3}
   m_Name: Level6
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
-  levelHealth: 114
-  levelStartupMoney: 800
+  levelHealth: 20
+  levelStartupMoney: 1200
   maxUnits: 6
   levelName: Level2
   levelNumber: 6
   gridSize: {x: 9, y: 5}
   terrainRows:
-  - G G G G P G G G G
-  - G G G G P G G G G
-  - VP VP VP VP R G G G G
-  - G G G G G G G G G
-  - G G G G G G G G G
+  - VP VP R270 G G G G G G
+  - G G P G G R180 VP R270 G
+  - G G R90 VP VP R G P G
+  - G G G G G G G P G
+  - VP VP VP VP VP VP VP R G
   decorRows:
-  - 'T T T S  . . . . '
-  - 'T T T S  . . . . '
+  - . . . CL . . . T TQ
+  - TL . . . . . . . TL
+  - TQ R . . . . . . .
+  - R . . . . . . . .
+  - . . . . . . . . GR
   waypointPositions:
-  - {x: 4.024, y: 0.266, z: 4.71}
-  - {x: 4.024, y: 0.266, z: 4.194}
-  - {x: 4.024, y: 0.266, z: 2.948}
-  - {x: 4.024, y: 0.266, z: 2.513}
-  - {x: 3.963, y: 0.266, z: 2.23}
-  - {x: 3.749, y: 0.266, z: 1.978}
-  - {x: 3.199, y: 0.266, z: 1.978}
-  - {x: 0.096, y: 0.266, z: 1.978}
-  - {x: -0.69, y: 0.266, z: 1.978}
+  - {x: -1.03, y: 0.266, z: 3.996}
+  - {x: 1.499, y: 0.266, z: 3.996}
+  - {x: 1.835, y: 0.266, z: 3.937}
+  - {x: 1.96, y: 0.266, z: 3.615}
+  - {x: 1.96, y: 0.266, z: 2.503}
+  - {x: 2.11, y: 0.266, z: 2.082}
+  - {x: 2.456, y: 0.266, z: 2.014}
+  - {x: 4.537, y: 0.266, z: 2.014}
+  - {x: 4.845, y: 0.266, z: 2.089}
+  - {x: 4.975, y: 0.266, z: 2.42}
+  - {x: 5.066, y: 0.266, z: 2.874}
+  - {x: 5.404, y: 0.266, z: 2.96}
+  - {x: 6.502, y: 0.266, z: 2.96}
+  - {x: 6.852, y: 0.266, z: 2.895}
+  - {x: 6.982, y: 0.266, z: 2.588}
+  - {x: 6.982, y: 0.266, z: 0.48}
+  - {x: 6.895, y: 0.266, z: 0.112}
+  - {x: 6.555, y: 0.266, z: -0.009}
+  - {x: -0.92, y: 0.266, z: -0.009}
   waves:
   - waveName: Wave 1
-    spawnInterval: 3
+    spawnInterval: 1
     enemyTokens:
-    - W
-    - C
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - X
+    - X
+    - X
+    - X
+    - X
+    - X
+    - X
+    - X
+    - X
+    - X
+  - waveName: Wave 2
+    spawnInterval: 1
+    enemyTokens:
+    - D
+    - D
+    - D
+    - D
+    - D
+    - D
+    - D
+    - D
+    - D
     - D
     - M
+    - M
+    - M
+    - M
+    - M
+    - M
+    - M
+    - M
+    - M
+    - M
+  - waveName: Wave 3
+    spawnInterval: 1
+    enemyTokens:
+    - E
+    - E
+    - E
+    - E
+    - E
+    - E
+    - E
+    - E
+    - E
+    - E
     - S
+    - S
+    - S
+    - S
+    - S
+    - S
+    - S
+    - S
+    - S
+    - S
+  - waveName: Wave 4
+    spawnInterval: 1
+    enemyTokens:
+    - G
+    - G
+    - G
+    - G
+    - G
+    - G
+    - G
+    - G
     - T
     - T
+    - T
+    - T
+  - waveName: Wave 5
+    spawnInterval: 1
+    enemyTokens:
+    - H
+    - H
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - X
+    - X
+    - X
+    - X
+    - X
+    - X
+  - waveName: Wave 6
+    spawnInterval: 1
+    enemyTokens:
+    - T
+    - T
+    - T
+    - T
+    - T
+    - T
+    - T
+    - T
+    - T
+    - T
+    - D
+    - D
+    - D
+    - D
+    - D
+    - D
+    - D
+    - D
+    - D
+    - D
+  - waveName: Wave 7
+    spawnInterval: 1
+    enemyTokens:
+    - G
+    - G
+    - G
+    - G
+    - G
+    - G
+    - G
+    - G
+    - G
+    - G
+    - G
+    - G
+    - E
+    - E
+    - E
+    - E
+    - E
+    - E
+  - waveName: Wave 8
+    spawnInterval: 1
+    enemyTokens:
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - X
+    - X
+    - X
+    - X
+    - X
+    - X
+    - X
+    - X
+    - X
+    - X
+  - waveName: Wave 9
+    spawnInterval: 1
+    enemyTokens:
+    - T
+    - T
+    - T
+    - T
+    - T
+    - T
+    - H
+    - H
+    - H
+    - H
+    - H
+    - H
+    - X
+    - X
+    - X
+    - X
+    - X
+    - X
+    - X
+    - X
+    - X
+    - X
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+  - waveName: Wave 10
+    spawnInterval: 1
+    enemyTokens:
+    - B
+    - X
+    - X
+    - X
+    - X
+    - X
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - D
+    - D
+    - D
+    - D
   unitAvailability: 01010101
   nextLevel: {fileID: 0}

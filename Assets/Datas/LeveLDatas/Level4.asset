@@ -12,41 +12,193 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34039f64388b47439fa6df5d3ceebd7, type: 3}
   m_Name: Level4
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
-  levelHealth: 112
-  levelStartupMoney: 800
-  maxUnits: 6
-  levelName: Level2
+  levelHealth: 16
+  levelStartupMoney: 700
+  maxUnits: 7
+  levelName: Level4
   levelNumber: 4
   gridSize: {x: 9, y: 5}
   terrainRows:
-  - G G G G P G G G G
-  - G G G G P G G G G
-  - VP VP VP VP R G G G G
-  - G G G G G G G G G
-  - G G G G G G G G G
+  - 'P G G G G G P G G '
+  - R90 R270 G G G G P G G
+  - G P G G G G P G G
+  - G R90 VP R270 G G P G G
+  - G G G R90 VP VP R G G
   decorRows:
-  - 'T T T S  . . . . '
-  - 'T T T S  . . . . '
+  - . TL . . . . . TL TQ
+  - . . . . . . . . T
+  - . . . . . . . . .
+  - R . . . . CL . . .
+  - TQ TQ R . . . . . .
   waypointPositions:
-  - {x: 4.024, y: 0.266, z: 4.71}
-  - {x: 4.024, y: 0.266, z: 4.194}
-  - {x: 4.024, y: 0.266, z: 2.948}
-  - {x: 4.024, y: 0.266, z: 2.513}
-  - {x: 3.963, y: 0.266, z: 2.23}
-  - {x: 3.749, y: 0.266, z: 1.978}
-  - {x: 3.199, y: 0.266, z: 1.978}
-  - {x: 0.096, y: 0.266, z: 1.978}
-  - {x: -0.69, y: 0.266, z: 1.978}
+  - {x: -0.001, y: 0.266, z: 4.931}
+  - {x: -0.001, y: 0.266, z: 3.456}
+  - {x: 0.132, y: 0.266, z: 3.11}
+  - {x: 0.491, y: 0.266, z: 2.997}
+  - {x: 0.877, y: 0.266, z: 2.957}
+  - {x: 0.977, y: 0.266, z: 2.599}
+  - {x: 0.977, y: 0.266, z: 1.438}
+  - {x: 1.166, y: 0.266, z: 1.111}
+  - {x: 1.464, y: 0.266, z: 1.024}
+  - {x: 2.487, y: 0.266, z: 1.024}
+  - {x: 2.987, y: 0.266, z: 0.959}
+  - {x: 3.103, y: 0.266, z: 0.139}
+  - {x: 3.509, y: 0.266, z: 0.001}
+  - {x: 5.606, y: 0.266, z: 0.001}
+  - {x: 5.91, y: 0.266, z: 0.132}
+  - {x: 5.983, y: 0.266, z: 0.48}
+  - {x: 5.983, y: 0.266, z: 4.855}
   waves:
   - waveName: Wave 1
+    spawnInterval: 1
+    enemyTokens:
+    - X
+    - X
+    - X
+    - X
+    - X
+    - X
+    - X
+    - X
+    - X
+    - X
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+  - waveName: Wave 2
+    spawnInterval: 1
+    enemyTokens:
+    - D
+    - D
+    - D
+    - D
+    - D
+    - D
+    - D
+    - D
+    - F
+    - F
+    - F
+    - F
+  - waveName: Wave 3
+    spawnInterval: 1
+    enemyTokens:
+    - E
+    - E
+    - E
+    - E
+    - E
+    - E
+    - M
+    - M
+    - M
+    - M
+    - M
+    - M
+    - M
+    - M
+    - M
+    - M
+  - waveName: Wave 4
+    spawnInterval: 1
+    enemyTokens:
+    - G
+    - G
+    - G
+    - G
+    - G
+    - G
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+  - waveName: Wave 5
+    spawnInterval: 1
+    enemyTokens:
+    - S
+    - S
+    - S
+    - C
+    - C
+    - C
+    - C
+    - C
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - X
+    - X
+    - X
+    - X
+    - X
+  - waveName: Wave 6
+    spawnInterval: 1
+    enemyTokens:
+    - H
+    - H
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - X
+    - X
+    - X
+    - X
+    - X
+    - E
+    - E
+    - E
+    - E
+  - waveName: Wave 7
+    spawnInterval: 1
+    enemyTokens:
+    - T
+    - T
+    - T
+    - T
+    - T
+    - T
+    - S
+    - S
+    - S
+    - S
+    - S
+    - S
+    - S
+    - S
+    - S
+    - S
+  - waveName: Wave 7
     spawnInterval: 3
     enemyTokens:
-    - W
-    - C
-    - D
-    - M
-    - S
     - T
-    - T
-  unitAvailability: 01010101
+    - H
+    - H
+    - Q
+    - Q
+    - Q
+    - Q
+    - X
+    - X
+    - X
+    - X
+    - Q
+    - X
+    - E
+    - E
+    - E
+    - E
+  unitAvailability: 010101010101
   nextLevel: {fileID: 11400000, guid: 7bd3d3283a380184d8d8a66098b3ea08, type: 2}

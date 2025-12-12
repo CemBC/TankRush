@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34039f64388b47439fa6df5d3ceebd7, type: 3}
   m_Name: Level1
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
-  levelHealth: 100
-  levelStartupMoney: 500
-  maxUnits: 5
+  levelHealth: 10
+  levelStartupMoney: 300
+  maxUnits: 3
   levelName: Level1
   levelNumber: 1
   gridSize: {x: 9, y: 5}
@@ -25,8 +25,11 @@ MonoBehaviour:
   - G G G G G G G G G
   - G G G G G G G G G
   decorRows:
-  - 'T T T S  . . . . '
-  - 'T S . . . . . . '
+  - D R . . . . . . TL
+  - R . . . . . . . TQ
+  - '. . . . . . . . . '
+  - . . . . . . . . .
+  - TQ TQ TL R T TL TQ TQ T
   waypointPositions:
   - {x: 4.024, y: 0.266, z: 4.71}
   - {x: 4.024, y: 0.266, z: 4.194}
@@ -39,32 +42,55 @@ MonoBehaviour:
   - {x: -0.69, y: 0.266, z: 1.978}
   waves:
   - waveName: Wave 1
-    spawnInterval: 1
+    spawnInterval: 1.5
     enemyTokens:
-    - E
-    - C
-    - H
-    - E
-    - X
-    - C
-  - waveName: Wave 2
-    spawnInterval: 6
-    enemyTokens:
-    - G
-    - H
     - F
-    - B
-    - X
-    - Q
-    - E
-  - waveName: Wave 3
-    spawnInterval: 1
+    - F
+    - F
+    - F
+    - F
+    - F
+  - waveName: Wave 2
+    spawnInterval: 1.4
     enemyTokens:
+    - M
     - S
-    - W
-    - T
+    - M
+    - S
+    - M
+    - S
+    - M
+    - M
+  - waveName: Wave 3
+    spawnInterval: 1.3
+    enemyTokens:
+    - F
+    - F
+    - S
+    - S
+    - F
+    - F
+    - S
+    - S
+  - waveName: Wave 4
+    spawnInterval: 1.2
+    enemyTokens:
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+    - Q
+  - waveName: Wave 4
+    spawnInterval: 1.1
+    enemyTokens:
+    - D
+    - D
     - D
     - M
-    - C
-  unitAvailability: 010101010101
+    - M
+    - D
+    - M
+    - M
+  unitAvailability: 000100010000
   nextLevel: {fileID: 11400000, guid: 8cb64dc46abcfd040b92d957b75ccd8f, type: 2}

@@ -17,9 +17,16 @@ MonoBehaviour:
   prefab: {fileID: 3875444588869496292, guid: 4cfc1bcbc0ca7104d8bd77a7c90cf23d, type: 3}
   ghostPrefab: {fileID: 0}
   nextUpgrade: {fileID: 3888305303159538883, guid: 2b676749b10dfe740be526caee7046d7, type: 3}
-  upgradeCost: 100
+  upgradeCost: 120
   cost: 0
   yOffset: 0
   footprintRadius: 0.4
-  range: 2
+  range: 2.7
   attackSpeed: 3
+  upgradePopups:
+  - +0.2 Buff
+  textPrefab: {fileID: 5374746445897705322, guid: 4c476fbbe3e65f045b28e4b8e652ede7, type: 3}
+  popupOffset: {x: 0, y: 1, z: 0}
+  popupRiseDistance: 1
+  popupLifeTime: 0.5
+  popupInterval: 0.12

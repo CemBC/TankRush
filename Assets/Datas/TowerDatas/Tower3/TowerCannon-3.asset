@@ -12,14 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6fd00ab30e19141a74070ece01046a, type: 3}
   m_Name: TowerCannon-3
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
-  damage: 3
+  damage: 30
   towerName: Cannon-3
   prefab: {fileID: 6251030389278539272, guid: ebdd9d33feaa28f41af45d3c97b16c2d, type: 3}
   ghostPrefab: {fileID: 0}
   nextUpgrade: {fileID: 6540356918602884020, guid: b348875bcb0f0ce48a460cad7de36695, type: 3}
-  upgradeCost: 100
+  upgradeCost: 160
   cost: 0
   yOffset: 0
   footprintRadius: 0.4
-  range: 1
-  attackSpeed: 1.2
+  range: 2.6
+  attackSpeed: 1.15
+  upgradePopups:
+  - +6 dmg
+  - +0.2 Range
+  - +0.15 attack speed
+  textPrefab: {fileID: 5374746445897705322, guid: 4c476fbbe3e65f045b28e4b8e652ede7, type: 3}
+  popupOffset: {x: 0, y: 1, z: 0}
+  popupRiseDistance: 1
+  popupLifeTime: 0.5
+  popupInterval: 0.12

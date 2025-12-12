@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 886364548603302068}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.19, y: 0.548, z: -0.492}
+  m_LocalPosition: {x: 0.19, y: 5.67, z: -0.492}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -545,7 +545,7 @@ Transform:
   m_GameObject: {fileID: 6954027977964803509}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.214, y: 0.548, z: -0.492}
+  m_LocalPosition: {x: -0.214, y: 5.67, z: -0.492}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -823,22 +823,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: defcc81b2bebfb14582b4941d28f753f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerUnit
-  floatingTextPrefab: {fileID: 5374746445897705322, guid: 4c476fbbe3e65f045b28e4b8e652ede7, type: 3}
-  popupSpawnPoint: {fileID: 4917651945213152252}
-  popupOffset: {x: 0, y: 1, z: 0}
-  popupRiseDistance: 1.2
-  popupLifeTime: 1
-  popupStagger: 0.12
   upgradeCostUI: {fileID: 7212168538027278568}
   XIcon: {fileID: 6954027977964803509}
   UpgradeIcon: {fileID: 886364548603302068}
   data: {fileID: 11400000, guid: da143717f893f5c4b8ae27e6c225c144, type: 2}
   attackSpeed: 0
   projectilePrefab: {fileID: 7752650047409449520, guid: 3aaf456b69a29ef44b44033346069dce, type: 3}
-  projectileSpeed: 30
+  projectileSpeed: 35
   projectileLifeTime: 2
   projectileRadius: 0.12
-  projectilePierce: 1
+  projectilePierce: 2
   enemyMask:
     serializedVersion: 2
     m_Bits: 512

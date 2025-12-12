@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 735511478865463946}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.191, y: 0.557, z: -0.478}
+  m_LocalPosition: {x: 0.191, y: 5.67, z: -0.478}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -276,7 +276,7 @@ Transform:
   m_GameObject: {fileID: 6278155522111795244}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.227, y: 0.5569992, z: -0.478}
+  m_LocalPosition: {x: -0.227, y: 5.67, z: -0.478}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -516,9 +516,9 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 9171b82a1e543844496c4fc34e34b757, type: 2}
   attackSpeed: 0
   projectilePrefab: {fileID: 5387614690319901137, guid: d65d7fcbcefe31b4f994f622b19966ba, type: 3}
-  projectileSpeed: 30
+  projectileSpeed: 25
   projectileLifeTime: 2
-  projectileRadius: 0.12
+  projectileRadius: 0.65
   projectilePierce: 1
   enemyMask:
     serializedVersion: 2

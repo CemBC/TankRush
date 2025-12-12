@@ -12,14 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6fd00ab30e19141a74070ece01046a, type: 3}
   m_Name: TowerCatapult-2
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
-  damage: 10
+  damage: 45
   towerName: Catapult-2
   prefab: {fileID: 5486452398449920540, guid: 045964eb49a032c408845f8eaec672c1, type: 3}
   ghostPrefab: {fileID: 0}
   nextUpgrade: {fileID: 2262228622975888750, guid: 1ae6ad0f45cd9e748aa737e33d357f45, type: 3}
-  upgradeCost: 100
+  upgradeCost: 140
   cost: 0
   yOffset: 0
   footprintRadius: 0.4
-  range: 2.5
-  attackSpeed: 0.5
+  range: 2.7
+  attackSpeed: 1
+  upgradePopups:
+  - +15 dmg
+  - +0.2 Range
+  - +0.1 attack speed
+  textPrefab: {fileID: 5374746445897705322, guid: 4c476fbbe3e65f045b28e4b8e652ede7, type: 3}
+  popupOffset: {x: 0, y: 1, z: 0}
+  popupRiseDistance: 1
+  popupLifeTime: 0.5
+  popupInterval: 0.12

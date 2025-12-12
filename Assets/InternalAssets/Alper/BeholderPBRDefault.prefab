@@ -1601,12 +1601,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaypointManager
   floatingTextPrefab: {fileID: 5374746445897705322, guid: df2be9ac0102b274ab2eabafce43a5f0, type: 3}
   wayPoints: []
-  priority: 1
-  baseSpeed: 1
+  priority: 4
+  baseSpeed: 0.6
   rotationSpeed: 10
-  maxHealth: 100
-  rewardMoney: 1
-  heathReduction: 1
+  maxHealth: 175
+  rewardMoney: 30
+  heathReduction: 4
 --- !u!136 &-866410027162651039
 CapsuleCollider:
   m_ObjectHideFlags: 0
