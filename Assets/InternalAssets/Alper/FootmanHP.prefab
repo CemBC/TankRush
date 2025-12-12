@@ -923,7 +923,7 @@ MonoBehaviour:
   priority: 3
   baseSpeed: 0.6
   rotationSpeed: 10
-  maxHealth: 100
+  maxHealth: 75
   rewardMoney: 20
   heathReduction: 3
 --- !u!136 &-4690403201602262906

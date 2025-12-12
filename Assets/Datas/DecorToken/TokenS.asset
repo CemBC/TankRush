@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 866a75bbee4637243955b3a45e7576b7, type: 3}
   m_Name: TokenS
   m_EditorClassIdentifier: Assembly-CSharp::TokenData
-  token: S
+  token: R
   prefab: {fileID: 6006181622257908306, guid: 98b55566090341c48a03e75ffd4c47c2, type: 3}
   rotation: {x: 0, y: 0, z: 0}
   scale: {x: 1, y: 1, z: 1}
