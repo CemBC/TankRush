@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using MaskTransitions;
 using UnityEditorInternal;
 public class LevelsMenu : MonoBehaviour
 {
@@ -60,7 +59,7 @@ public class LevelsMenu : MonoBehaviour
     public void LoadLevel(LevelData data)
     {
         LevelRuntimePasser.Current = data;
-        TransitionManager.Instance.LoadLevel("GameScene");
+        SceneManager.LoadScene("GameScene");
     }
 
     public void OnPlayButtonClicked()
