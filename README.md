@@ -1,64 +1,42 @@
 # Another TD Game
 
-A strategy-focused tower defense game developed in Unity. Players place and upgrade specialized defensive units, manage their resources, and survive increasingly challenging enemy waves.
-
-## About the Game
-
-Another TD Game is a tower defense project built around strategic unit placement and progression. Different defensive structures serve different combat roles, encouraging players to adapt their strategy according to enemy types and level layouts.
-
-The project also focuses on gameplay performance. Projectile behavior and target-selection systems were optimized to reduce unnecessary runtime calculations and improve performance during larger enemy waves.
+A strategy-focused tower defense game developed in Unity. Players place and upgrade specialized defensive units, manage resources, and survive increasingly challenging enemy waves.
 
 ## Features
 
-- Strategic tower placement
-- Multiple tower types and upgrade levels
+- Strategic tower placement and upgrades
+- Multiple defensive and utility structures
 - Wave-based enemy progression
-- Different enemy types with configurable attributes
-- Resource and economy management
-- Gold-producing structures
+- Configurable enemies, towers, terrain, and levels
+- Resource management and gold-producing structures
 - Drag-and-drop tower interaction
-- Data-driven level, enemy, terrain, and tower configuration
-- Main menu and level progression
-- Health, progress, win, and lose interfaces
-- Performance-optimized projectile systems
-- Optimized target-selection mechanics
-
-## Tower Types
-
-The game includes several defensive and utility structures, such as:
-
-- Cannons
-- Catapults
-- Turrets
-- Gold Mines
-
-Each structure has its own role, statistics, and upgrade progression.
+- Win, lose, health, and progress interfaces
+- Performance-focused projectile and targeting systems
 
 ## Technical Highlights
 
-One of the main development challenges was projectile performance. Creating every projectile as an independent GameObject caused performance problems during larger waves.
-
-To address this, projectile representations were converted into lightweight UI-based elements where appropriate. Target-selection behavior was also improved to avoid repeatedly switching targets and performing unnecessary range calculations.
+A key development challenge was the cost of representing every projectile as an independent GameObject. The projectile system was redesigned to use lighter-weight visual elements where appropriate, reducing runtime overhead during larger waves. Target-selection logic was also adjusted to avoid unnecessary target switching and repeated range calculations.
 
 ## Technologies
 
 - Unity
 - C#
 - Universal Render Pipeline
-- Unity UI
 - ScriptableObjects
-- Prefab-based architecture
-- Data-driven level design
+- Unity UI
+- Prefab-based and data-driven architecture
 
-## Project Structure
+## Running the Project
 
-```text
-Assets/
-├── Datas/
-│   ├── EnemyToken/
-│   ├── TowerDatas/
-│   ├── TerrainToken/
-│   └── LevelDatas/
-├── InternalAssets/
-├── ExternalAssets/
-└── Scripts/s
+1. Clone the repository.
+2. Open Unity Hub.
+3. Select **Add project from disk**.
+4. Open the cloned project folder.
+5. Open the main menu scene and press Play.
+
+## Author
+
+**Cem Başar Ceylani**
+
+- GitHub: [CemBC](https://github.com/CemBC)
+- Portfolio: [cembc.github.io/CemBasarCeylani](https://cembc.github.io/CemBasarCeylani)
