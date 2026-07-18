@@ -14,15 +14,12 @@ public class SettingsMenu : MonoBehaviour
 
     void Start()
     {
-        // Kayıtlı değerleri yükle
         musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1f);
         effectsSlider.value = PlayerPrefs.GetFloat("EffectsVolume", 1f);
 
-        // Hemen uygula
         if (musicSource) musicSource.volume = musicSlider.value;
         if (effectsSource) effectsSource.volume = effectsSlider.value;
 
-        // Dinleyicileri bağla
         musicSlider.onValueChanged.AddListener(OnMusicVolumeChanged);
         effectsSlider.onValueChanged.AddListener(OnEffectsVolumeChanged);
     }
